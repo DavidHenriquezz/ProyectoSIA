@@ -48,6 +48,13 @@ class Pasajero{
     public String getCorreo(){
         return correo;
     }
+    
+    public void MostrarPasajero(){
+        System.out.println("Nombre: "+ getNombre());
+        System.out.println("Edad: "+ getEdad());
+        System.out.println("Correo: "+ getCorreo());
+    }
+    
 }
 
 class Asiento {
