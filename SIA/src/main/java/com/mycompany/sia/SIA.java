@@ -22,6 +22,17 @@ class Pasajero{
     public void setCorreo(String correo){
         this.correo = correo;
     }
+    
+    
+    public String getNombre(){
+        return nombre;
+    }
+    public int getEdad(){
+        return edad;
+    }
+    public String getCorreo(){
+        return correo;
+    }
 }
 public class SIA {
 
