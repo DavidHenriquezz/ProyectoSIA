@@ -8,6 +8,9 @@ package com.mycompany.sia;
  *
  * @author David
  */
+class Pasajero{
+    
+}
 public class SIA {
 
     public static void main(String[] args) {
