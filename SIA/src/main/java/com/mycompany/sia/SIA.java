@@ -55,7 +55,6 @@ class Pasajero{
         System.out.println("Edad: "+ getEdad());
         System.out.println("Correo: "+ getCorreo());
     }
-    
 }
 
 class Asiento {
