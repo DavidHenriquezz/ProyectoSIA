@@ -13,7 +13,7 @@ import java.util.*;
 class Pasajero{
     private String nombre;
     private int edad;
-    //private String correo;
+    private String correo;
     
     public void setNombre(String nombre){
         this.nombre = nombre;
