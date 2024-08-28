@@ -9,47 +9,45 @@ package com.mycompany.sia;
  * @author David
  * @author Sepu
  */
+import static com.mycompany.sia.Menu.limpiarConsola;
 import java.util.*;
+import java.io.*;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
-class Asiento {
-    private String numeroAsiento;
-    private boolean ocupado;
-    private ArrayList<Pasajero> pasajero;
-
-    public Asiento(String Nasiento, boolean ocupado) {
-        this.numeroAsiento = Nasiento;
-        this.ocupado = false;
-        pasajero = new ArrayList();
-    }
-    public Asiento(String Nasiento, boolean ocupado, ArrayList Pasajero) {
-        this.numeroAsiento = Nasiento;
-        this.ocupado = true;
-        Pasajero = new ArrayList();
-        Pasajero.add(Pasajero);
-    }
-
-    public String getNasiento() {
-        return numeroAsiento;
-    }
-    public void  setNasiento(String Nasiento){
-        this.numeroAsiento = Nasiento;
-    }
-
-    public boolean isOcupado() {
-        return ocupado;
-    }
-    public void setOcupado(boolean ocupado){
-        this.ocupado = ocupado;
-    }
-
-    public void agregarPasajero(Pasajero passenger){
-        pasajero.add(passenger);
-
-    }
-}
 public class SIA {
+    public static void main(String[] args) throws IOException {
+        int Opcion;
+        String Ingresar;
+        Menu menu = new Menu();
+        
+        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
+        while(true)
+        {
+            menu.MostrarOpciones();
+            System.out.println("Ingrese Su opcion: ");
+            Ingresar = lector.readLine();
+            Opcion = Integer.parseInt(Ingresar);
+            
+            if(Opcion == 4) break;
+            
+            
+            limpiarConsola();
+            switch (Opcion) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.out.println("Su opcion no existe");
+                    limpiarConsola();
+                    break;
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+            }
+            
+        }
+        
     }
 }
