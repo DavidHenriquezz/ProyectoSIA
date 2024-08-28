@@ -5,9 +5,11 @@
 package com.mycompany.sia;
 
 /**
- *
+ * @author andyp
  * @author David
  */
+import java.util.*;
+
 class Pasajero{
     private String nombre;
     private int edad;
@@ -22,7 +24,20 @@ class Pasajero{
     public void setCorreo(String correo){
         this.correo = correo;
     }
+    public void setCorreo(){
+        correo = "No hay correo";
+    }
     
+    public void Pasajero(String nombre, int edad, String correo){
+        setNombre(nombre);
+        setEdad(edad);
+        setCorreo(correo);
+    }
+    public void Pasajero(String nombre, int edad){
+        setNombre(nombre);
+        setEdad(edad);
+        setCorreo();
+    }
     
     public String getNombre(){
         return nombre;
@@ -32,6 +47,43 @@ class Pasajero{
     }
     public String getCorreo(){
         return correo;
+    }
+}
+
+class Asiento {
+    private String numeroAsiento;
+    private boolean ocupado;
+    private ArrayList<Pasajero> pasajero;
+
+    public Asiento(String Nasiento, boolean ocupado) {
+        this.numeroAsiento = Nasiento;
+        this.ocupado = false;
+        pasajero = new ArrayList();
+    }
+    public Asiento(String Nasiento, boolean ocupado, ArrayList Pasajero) {
+        this.numeroAsiento = Nasiento;
+        this.ocupado = true;
+        Pasajero = new ArrayList();
+        Pasajero.add(Pasajero);
+    }
+
+    public String getNasiento() {
+        return numeroAsiento;
+    }
+    public void  setNasiento(String Nasiento){
+        this.numeroAsiento = Nasiento;
+    }
+
+    public boolean isOcupado() {
+        return ocupado;
+    }
+    public void setOcupado(boolean ocupado){
+        this.ocupado = ocupado;
+    }
+
+    public void agregarPasajero(Pasajero passenger){
+        pasajero.add(passenger);
+
     }
 }
 public class SIA {
