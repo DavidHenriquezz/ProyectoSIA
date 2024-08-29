@@ -5,6 +5,7 @@
 package com.mycompany.sia;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -12,34 +13,35 @@ import java.util.HashMap;
  * @author David
  */
 public class Terminal {
-    private String direccion;
-    private HashMap<String,Itinerario> buses;
+    private ArrayList<Bus> buses;
 
-    public Terminal(String direccion, HashMap<String, Buses> buses) {
-        this.direccion = direccion;
-        this.buses = new HashMap<String,Itinerario>();
+    public Terminal(ArrayList<Bus> buses) {
+        this.buses = new ArrayList<>();
     }
 
-    public String getDireccion() {
-        return direccion;
+    Terminal() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public HashMap<String, Itinerario> getBuses() {
+    public ArrayList<Bus> getBuses() {
         return buses;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public void setBuses(HashMap<String, Itinerario> buses) {
+    public void setBuses(ArrayList<Bus> buses) {
         this.buses = buses;
     }
-    public void agregarAsientos(String clave, Itinerario ii)
-    {
-        this.buses.put(clave,ii);
+    
+    public void agregarBuses(Bus bus){
+        buses.add(bus);
     }
-    
-    
-    
+    public void mostrarBuses(){
+        for(int i = 0; i<=buses.size();i++)
+        { 
+            Bus bus = buses.get(i);
+            System.out.println("Bus "+ bus.getPatente()+ "- Capacidad: " + bus.getCapacidadDisponible());
+            System.out.println("Horario: "+ bus.getHorario());
+            System.out.println("Punto Partida: "+bus.getDireccionIda()+"Punto Final: "+bus.getDireccionVuelta());
+        }
+    }
+     
 }

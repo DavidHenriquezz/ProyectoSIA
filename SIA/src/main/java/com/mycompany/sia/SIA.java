@@ -19,6 +19,10 @@ public class SIA {
         int Opcion;
         String Ingresar;
         Menu menu = new Menu();
+        Terminal terminal = new Terminal();
+        
+        
+        terminal.agregarBuses(new Bus("aaaa","aaba","AbAb","ABBB",50));
         
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         while(true)
@@ -34,7 +38,7 @@ public class SIA {
             limpiarConsola();
             switch (Opcion) {
                 case 1:
-                    
+                    terminal.mostrarBuses();
                     break;
                 case 2:
                     break;

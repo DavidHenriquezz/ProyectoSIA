@@ -15,6 +15,18 @@ public class Asiento {
 
     private String numeroAsiento;
     private boolean ocupado;
+    private Pasajero pasajero;
+
+    public Asiento(String numeroAsiento, boolean ocupado, Pasajero pasajero) {
+        this.numeroAsiento = numeroAsiento;
+        this.ocupado = ocupado;
+        this.pasajero = pasajero;
+    }
+    public Asiento(){
+        this.numeroAsiento = "";
+        this.ocupado = false;
+        this.pasajero = null;
+    }
     
     public void setNumeroAsiento(String numeroAsiento) {
         this.numeroAsiento = numeroAsiento;
@@ -38,6 +50,15 @@ public class Asiento {
     public void MostrarAsiento(){
         System.out.println("Asiento: "+ numeroAsiento);
         System.out.println("Estado: "+ ocupado);
+    }
+    
+    public void ocupar(Bus bus){
+        if(!ocupado){
+            ocupado = true;
+            bus.ocuparAsiento();
+        }else{
+            System.out.println("Este asiento ya esta ocuapado:");
+        }
     }
 }
  
