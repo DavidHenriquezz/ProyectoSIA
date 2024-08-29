@@ -16,13 +16,9 @@ public class Terminal {
     private ArrayList<Bus> buses;
 
     public Terminal(ArrayList<Bus> buses) {
-        this.buses = new ArrayList<>();
+        this.buses = buses;
     }
-
-    Terminal() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    
     public ArrayList<Bus> getBuses() {
         return buses;
     }
@@ -35,6 +31,10 @@ public class Terminal {
         buses.add(bus);
     }
     public void mostrarBuses(){
+        if (buses.isEmpty()){
+            System.out.println("No hay buses disponible");
+            return;
+        }
         for(int i = 0; i<=buses.size();i++)
         { 
             Bus bus = buses.get(i);

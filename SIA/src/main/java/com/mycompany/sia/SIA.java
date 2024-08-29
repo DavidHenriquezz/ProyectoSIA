@@ -19,11 +19,12 @@ public class SIA {
         int Opcion;
         String Ingresar;
         Menu menu = new Menu();
-        Terminal terminal = new Terminal();
         
+        ArrayList<Bus> buses = new ArrayList<>();
         
-        terminal.agregarBuses(new Bus("aaaa","aaba","AbAb","ABBB",50));
+        Terminal terminal = new Terminal(buses);
         
+          
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         while(true)
         {
