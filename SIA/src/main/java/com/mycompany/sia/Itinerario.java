@@ -16,7 +16,7 @@ public class Itinerario {
     private String Horario;
     private int Costo;
 
-    public Itinerario(String Patente, String Capacidad, String DirreccionIda, String DirreccionVuelta) {
+    public Itinerario(String Patente, String Capacidad, String DirreccionIda, String DirreccionVuelta, int Costo, String Horario) {
         this.Patente = Patente;
         this.Capacidad = Capacidad;
         this.DirreccionIda = DirreccionIda;
