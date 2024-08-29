@@ -4,6 +4,8 @@
  */
 package com.mycompany.sia;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author David
@@ -11,18 +13,20 @@ package com.mycompany.sia;
 public class Itinerario {
     private String Patente;
     private String Capacidad;
-    private String DirreccionIda;
-    private String DirreccionVuelta;
+    private String DireccionIda;
+    private String DireccionVuelta;
     private String Horario;
     private int Costo;
+    private ArrayList<Asiento> Asientos;
 
     public Itinerario(String Patente, String Capacidad, String DirreccionIda, String DirreccionVuelta, int Costo, String Horario) {
         this.Patente = Patente;
         this.Capacidad = Capacidad;
-        this.DirreccionIda = DirreccionIda;
-        this.DirreccionVuelta = DirreccionVuelta;
+        this.DireccionIda = DirreccionIda;
+        this.DireccionVuelta = DirreccionVuelta;
         this.Costo = Costo;
         this.Horario = Horario;
+        this.Asientos = new ArrayList<Asiento>();
     }
     // GETTER
 
@@ -42,13 +46,18 @@ public class Itinerario {
         return Capacidad;
     }
 
-    public String getDirreccionIda() {
-        return DirreccionIda;
+    public String getDireccionIda() {
+        return DireccionIda;
     }
 
-    public String getDirreccionVuelta() {
-        return DirreccionVuelta;
+    public String getDireccionVuelta() {
+        return DireccionVuelta;
     }
+
+    public ArrayList<Asiento> getAsientos() {
+        return Asientos;
+    }
+    
     // SETTER
 
     public void setHorario(String Horario) {
@@ -67,13 +76,18 @@ public class Itinerario {
         this.Capacidad = Capacidad;
     }
 
-    public void setDirreccionIda(String DirreccionIda) {
-        this.DirreccionIda = DirreccionIda;
+    public void setDireccionIda(String DirreccionIda) {
+        this.DireccionIda = DirreccionIda;
     }
 
-    public void setDirreccionVuelta(String DirreccionVuelta) {
-        this.DirreccionVuelta = DirreccionVuelta;
+    public void setDireccionVuelta(String DirreccionVuelta) {
+        this.DireccionVuelta = DirreccionVuelta;
     }
+
+    public void setAsientos(ArrayList<Asiento> Asientos) {
+        this.Asientos = Asientos;
+    }
+    
     
     
 }
