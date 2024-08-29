@@ -15,28 +15,26 @@ public class Asiento {
 
     private String numeroAsiento;
     private boolean ocupado;
-
-    public Asiento(String numeroAsiento, boolean ocupado) {
+    
+    public void setNumeroAsiento(String numeroAsiento) {
         this.numeroAsiento = numeroAsiento;
+    }
+    public void setOcupado(boolean ocupado) {
         this.ocupado = ocupado;
+    }
+    
+    public void Asiento(String numeroAsiento, boolean ocupado) {
+        setNumeroAsiento(numeroAsiento);
+        setOcupado(ocupado);
     }
 
     public String getNumeroAsiento() {
         return numeroAsiento;
     }
 
-    public boolean isOcupado() {
+    public boolean getOcupado(){
         return ocupado;
     }
-
-    public void setNumeroAsiento(String numeroAsiento) {
-        this.numeroAsiento = numeroAsiento;
-    }
-
-    public void setOcupado(boolean ocupado) {
-        this.ocupado = ocupado;
-    }
-    
  
 }
  
