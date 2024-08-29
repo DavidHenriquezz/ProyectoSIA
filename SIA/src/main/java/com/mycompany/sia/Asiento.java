@@ -31,10 +31,13 @@ public class Asiento {
     public String getNumeroAsiento() {
         return numeroAsiento;
     }
-
     public boolean getOcupado(){
         return ocupado;
     }
- 
+    
+    public void MostrarAsiento(){
+        System.out.println("Asiento: "+ numeroAsiento);
+        System.out.println("Estado: "+ ocupado);
+    }
 }
  
