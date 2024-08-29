@@ -34,10 +34,10 @@ public class Bus {
         
         // Inicializar los asinetos...
         for(int i = 0; i < capacidadTotal; i++){
-            asientos.add(new Asiento());
+            asientos.add(new Asiento("Asiento: " + (i + 1)));
         }
     }
-
+    
     public Bus(String patente, String direccionIda, String direccionVuelta, String horario, int capacidadDisponible) {
         this.patente = patente;
         this.direccionIda = direccionIda;
@@ -104,7 +104,7 @@ public class Bus {
         this.capacidadDisponible = capacidadTotal;
         this.asientos = new ArrayList<>();
         for(int i = 0; i<capacidadTotal;i++){
-            asientos.add(new Asiento());
+            asientos.add(new Asiento("Asiento: " + (i + 1)));
         }
     }
 
@@ -115,7 +115,6 @@ public class Bus {
     public void setAsientos(ArrayList<Asiento> asientos) {
         this.asientos = asientos;
     }
-    
     
     public void ocuparAsiento(){
         if(capacidadDisponible > 0){
