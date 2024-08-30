@@ -22,10 +22,14 @@ public class Asiento {
         this.ocupado = ocupado;
         this.pasajero = pasajero;
     }
-    public Asiento(){
-        this.numeroAsiento = "";
+    public Asiento(String numeroAsiento){
+        this.numeroAsiento = numeroAsiento;
         this.ocupado = false;
         this.pasajero = null;
+    }
+    public Asiento(String numeroAsiento, boolean ocupado) {
+        this.numeroAsiento = numeroAsiento;
+        this.ocupado = ocupado;
     }
     
     public void setNumeroAsiento(String numeroAsiento) {
@@ -33,11 +37,6 @@ public class Asiento {
     }
     public void setOcupado(boolean ocupado) {
         this.ocupado = ocupado;
-    }
-    
-    public void Asiento(String numeroAsiento, boolean ocupado) {
-        setNumeroAsiento(numeroAsiento);
-        setOcupado(ocupado);
     }
 
     public String getNumeroAsiento() {
@@ -47,7 +46,7 @@ public class Asiento {
         return ocupado;
     }
     
-    public void MostrarAsiento(){
+    public void mostrarAsiento(){
         System.out.println("Asiento: "+ numeroAsiento);
         System.out.println("Estado: "+ ocupado);
     }

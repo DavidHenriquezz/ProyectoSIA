@@ -22,19 +22,19 @@ public class Pasajero {
     public void setCorreo(String correo){
         this.correo = correo;
     }
-    public void setCorreo(){
+    public Pasajero(){
         correo = "No hay correo";
     }
     
-    public void Pasajero(String nombre, int edad, String correo){
-        setNombre(nombre);
-        setEdad(edad);
-        setCorreo(correo);
+    public Pasajero(String nombre, int edad, String correo){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.correo = correo;
     }
-    public void Pasajero(String nombre, int edad){
-        setNombre(nombre);
-        setEdad(edad);
-        setCorreo();
+    public Pasajero(String nombre, int edad){
+        this.nombre = nombre;
+        this.edad = edad;
+        correo = "No hay correo";
     }
     
     public String getNombre(){
@@ -47,7 +47,7 @@ public class Pasajero {
         return correo;
     }
     
-    public void MostrarPasajero(){
+    public void mostrarPasajero(){
         System.out.println("Nombre: "+ getNombre());
         System.out.println("Edad: "+ getEdad());
         System.out.println("Correo: "+ getCorreo());

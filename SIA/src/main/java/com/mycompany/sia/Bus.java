@@ -29,21 +29,34 @@ public class Bus {
         this.horario = horario;
         this.costo = costo;
         this.capacidadTotal = capacidadTotal;
-        this.capacidadDisponible = capacidadTotal;
-        this.asientos = new ArrayList<>();
+        this.asientos = asientos != null ? asientos :new ArrayList<>();
         
-        // Inicializar los asinetos...
-        for(int i = 0; i < capacidadTotal; i++){
-            asientos.add(new Asiento("Asiento: " + (i + 1)));
+        // Inicializar los asientos...
+        int ocupados = 0;
+        
+        for (Asiento asiento : this.asientos){
+            if (asiento.getOcupado()){
+                ocupados++;
+            }
+        }
+        this.capacidadDisponible = capacidadTotal - ocupados;
+        
+        if (this.asientos.isEmpty()){
+            for(int i = 0; i < capacidadTotal; i++){
+                this.asientos.add(new Asiento("Asiento: " + (i + 1)));
+            }
+            this.capacidadDisponible = capacidadTotal;
         }
     }
     
-    public Bus(String patente, String direccionIda, String direccionVuelta, String horario, int capacidadDisponible) {
+    public Bus(String patente, String direccionIda, String direccionVuelta, String horario, int capacidadTotal) {
         this.patente = patente;
         this.direccionIda = direccionIda;
         this.direccionVuelta = direccionVuelta;
         this.horario = horario;
-        this.capacidadDisponible = capacidadDisponible;
+        this.capacidadTotal = capacidadTotal;
+        this.capacidadDisponible = capacidadTotal;
+        this.asientos = null;
     }
     
 
@@ -118,7 +131,13 @@ public class Bus {
     
     public void ocuparAsiento(){
         if(capacidadDisponible > 0){
-            capacidadDisponible--;
+            for (Asiento asiento: asientos){
+                if (!asiento.getOcupado()) {
+                    asiento.setOcupado(true);
+                    capacidadDisponible--;
+                    return;
+                }
+            }
         }else{
             System.out.println("BUS LLENO ");
         }
