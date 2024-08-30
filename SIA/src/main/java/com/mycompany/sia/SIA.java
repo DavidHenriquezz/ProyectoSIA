@@ -46,6 +46,21 @@ public class SIA {
                 case 3:
                     break;
                 case 4:
+                    menu.MostrarOpcionesPasajero();
+                    String ingresarPasajero = lector.readLine();
+                    int opcionPasajero = Integer.parseInt(ingresarPasajero);
+                    limpiarConsola();
+                    
+                    switch (opcionPasajero){
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
                     break;
                 case 5:
                     break;

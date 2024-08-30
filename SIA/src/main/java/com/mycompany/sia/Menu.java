@@ -17,8 +17,17 @@ public class Menu {
         System.out.println("Opcion 1: Mostrar Buses");
         System.out.println("Opcion 2: Buscar Bus");
         System.out.println("Opcion 3: Modificar Bus");
+        System.out.println("Opcion 4: Gestionar Pasajeros");
+        System.out.println("Opcion 5: Salir");
+    }
+    
+    public void MostrarOpcionesPasajero(){
+        System.out.println("Opcion 1: Agregar Pasajero");
+        System.out.println("Opcion 2: Eliminar Pasajero");
+        System.out.println("Opcion 3: Modificar Pasajero");
         System.out.println("Opcion 4: Salir");
     }
+    
     public static void limpiarConsola() {
         try {
             if (System.getProperty("os.name").contains("Windows")) {

@@ -42,6 +42,5 @@ public class Terminal {
             System.out.println("Horario: "+ bus.getHorario());
             System.out.println("Punto Partida: "+bus.getDireccionIda()+"Punto Final: "+bus.getDireccionVuelta());
         }
-    }
-     
+    } 
 }
