@@ -12,14 +12,14 @@ import java.util.ArrayList;
  */
 public class Itinerario {
     private String Patente;
-    private String Capacidad;
+    private int Capacidad;
     private String DireccionIda;
     private String DireccionVuelta;
     private String Horario;
     private int Costo;
     private ArrayList<Asiento> Asientos;
 
-    public Itinerario(String Patente, String Capacidad, String DirreccionIda, String DirreccionVuelta, int Costo, String Horario) {
+    public Itinerario(String Patente, int Capacidad, String DirreccionIda, String DirreccionVuelta, int Costo, String Horario) {
         this.Patente = Patente;
         this.Capacidad = Capacidad;
         this.DireccionIda = DirreccionIda;
@@ -42,7 +42,7 @@ public class Itinerario {
         return Patente;
     }
 
-    public String getCapacidad() {
+    public int getCapacidad() {
         return Capacidad;
     }
 
@@ -65,15 +65,25 @@ public class Itinerario {
     }
 
     public void setCosto(int Costo) {
-        this.Costo = Costo;
+        if (Costo > 0){
+            this.Costo = Costo;
+        }
+        else{
+            System.out.println("El costo debe ser positivo");
+        }
     }
     
     public void setPatente(String Patente) {
         this.Patente = Patente;
     }
 
-    public void setCapacidad(String Capacidad) {
-        this.Capacidad = Capacidad;
+    public void setCapacidad(int Capacidad) {
+        if (Capacidad > 0 ){
+            this.Capacidad = Capacidad;
+        }
+        else{
+            System.out.println("La capacidad debe ser mayor a 0");
+        }
     }
 
     public void setDireccionIda(String DirreccionIda) {
@@ -85,9 +95,6 @@ public class Itinerario {
     }
 
     public void setAsientos(ArrayList<Asiento> Asientos) {
-        this.Asientos = Asientos;
+        this.Asientos = Asientos != null ? Asientos : new ArrayList<>();
     }
-    
-    
-    
 }
