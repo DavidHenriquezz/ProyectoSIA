@@ -33,7 +33,7 @@ public class SIA {
             Ingresar = lector.readLine();
             Opcion = Integer.parseInt(Ingresar);
             
-            if(Opcion == 4) break;
+            if(Opcion == 5) break;
             
             
             limpiarConsola();
@@ -61,8 +61,6 @@ public class SIA {
                         case 4:
                             break;
                     }
-                    break;
-                case 5:
                     break;
                 default:
                     System.out.println("Su opcion no existe");
