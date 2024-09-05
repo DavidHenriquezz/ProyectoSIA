@@ -60,30 +60,39 @@ public class Terminal {
         }
     }
     
-    public void cargarBusesDesdeCSV(String archivoCSV) {
-        String linea;
-        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
-            // Leer la primera línea (encabezado) y descartarla
-            br.readLine();
+    public void cargarBusesDesdeCSV(String BusesCSV) {
+    String linea;
+    try (BufferedReader br = new BufferedReader(new FileReader(BusesCSV))) {
+        // Leer la primera línea (encabezado) y descartarla
+        br.readLine();
+        
+        // Leer línea por línea
+        while ((linea = br.readLine()) != null) {
+            // Separar la línea en campos
+            String[] campos = linea.split(",");
             
-            // Leer línea por línea
-            while ((linea = br.readLine()) != null) {
-                // Separar la línea en campos
-                String[] campos = linea.split(",");
-                
-                // Crear un nuevo objeto Bus y agregarlo a la lista
-                String patente = campos[0];
-                int capacidadDisponible = Integer.parseInt(campos[1]);
-                String horario = campos[2];
-                String direccionIda = campos[3];
-                String direccionVuelta = campos[4];
-                
-                Bus bus = new Bus(patente, capacidadDisponible, horario, direccionIda, direccionVuelta);
-                agregarBuses(bus);
+            // Verificar que se hayan leído suficientes campos
+            if (campos.length < 5) {
+                System.out.println("Línea incompleta en el archivo CSV: " + linea);
+                continue;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            
+            // Crear un nuevo objeto Bus y agregarlo a la lista
+            String patente = campos[0].trim();
+            int capacidadDisponible = Integer.parseInt(campos[1].trim());
+            String horario = campos[2].trim();
+            String direccionIda = campos[3].trim();
+            String direccionVuelta = campos[4].trim();
+            
+            Bus bus = new Bus(patente, capacidadDisponible, horario, direccionIda, direccionVuelta);
+            agregarBuses(bus);
         }
+    } catch (IOException e) {
+        System.out.println("Error al leer el archivo CSV: " + e.getMessage());
+        e.printStackTrace();
+    } catch (NumberFormatException e) {
+        System.out.println("Error al convertir la capacidad disponible: " + e.getMessage());
+        e.printStackTrace();
     }
-
+}
 }

@@ -21,9 +21,8 @@ public class SIA {
         Menu menu = new Menu();
         
         ArrayList<Bus> buses = new ArrayList<>();
-        
         Terminal terminal = new Terminal(buses);
-        
+        terminal.cargarBusesDesdeCSV("BusesCSV.csv");
           
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         while(true)
