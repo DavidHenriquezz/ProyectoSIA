@@ -15,17 +15,17 @@ import java.util.HashMap;
 public class Bus {
     private String patente;
     private String direccionIda;
-    private String direccionVuelta;
+    private String direccionSalida;
     private String horario;
     private int costo;
     private int capacidadTotal;
     private int capacidadDisponible;
     private ArrayList<Asiento> asientos;
 
-    public Bus(String patente, String direccionIda, String direccionVuelta, String horario, int costo, int capacidadTotal, int capacidadDisponible, ArrayList<Asiento> asientos) {
+    public Bus(String patente, String direccionIda, String direccionSalida, String horario, int costo, int capacidadTotal, int capacidadDisponible, ArrayList<Asiento> asientos) {
         this.patente = patente;
         this.direccionIda = direccionIda;
-        this.direccionVuelta = direccionVuelta;
+        this.direccionSalida = direccionSalida;
         this.horario = horario;
         this.costo = costo;
         this.capacidadTotal = capacidadTotal;
@@ -49,17 +49,15 @@ public class Bus {
         }
     }
     
-    public Bus(String patente, String direccionIda, String direccionVuelta, String horario, int capacidadTotal) {
+    public Bus(String patente, int capacidadTotal, String horario, String direccionIda, String direccionSalida) {
         this.patente = patente;
         this.direccionIda = direccionIda;
-        this.direccionVuelta = direccionVuelta;
+        this.direccionSalida = direccionSalida;
         this.horario = horario;
         this.capacidadTotal = capacidadTotal;
         this.capacidadDisponible = capacidadTotal;
         this.asientos = null;
     }
-    
-
     public String getPatente() {
         return patente;
     }
@@ -68,8 +66,8 @@ public class Bus {
         return direccionIda;
     }
 
-    public String getDireccionVuelta() {
-        return direccionVuelta;
+    public String getDireccionSalida() {
+        return direccionSalida;
     }
 
     public String getHorario() {
@@ -100,8 +98,8 @@ public class Bus {
         this.direccionIda = direccionIda;
     }
 
-    public void setDireccionVuelta(String direccionVuelta) {
-        this.direccionVuelta = direccionVuelta;
+    public void setdireccionSalida (String direccionSalida) {
+        this.direccionSalida = direccionSalida;
     }
 
     public void setHorario(String horario) {
