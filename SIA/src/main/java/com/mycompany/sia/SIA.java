@@ -42,6 +42,10 @@ public class SIA {
                     terminal.mostrarBuses();
                     break;
                 case 2:
+                    String patente;
+                    System.out.println("Ingrese la patente del bus que desea ver");
+                    patente = lector.readLine();
+                    terminal.buscarBus(patente);
                     break;
                 case 3:
                     break;

@@ -42,5 +42,21 @@ public class Terminal {
             System.out.println("Horario: "+ bus.getHorario());
             System.out.println("Punto Partida: "+bus.getDireccionIda()+"Punto Final: "+bus.getDireccionVuelta());
         }
-    } 
+    }
+
+    public void buscarBus(String patente){
+        if (buses.isEmpty()){
+            System.out.println("No hay buses disponibles");
+        }
+        else{
+            for (int i = 0; i<=buses.size();i++ ){
+                if ((buses.get(i)).getPatente().equals(patente)){
+                    Bus bus = buses.get(i);
+                    System.out.println("Bus "+ bus.getPatente()+ "- Capacidad: " + bus.getCapacidadDisponible());
+                    System.out.println("Horario: "+ bus.getHorario());
+                    System.out.println("Punto Partida: "+bus.getDireccionIda()+"Punto Final: "+bus.getDireccionVuelta());
+                }
+            }
+        }
+    }
 }
