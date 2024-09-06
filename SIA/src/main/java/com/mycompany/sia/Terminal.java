@@ -59,7 +59,7 @@ public class Terminal {
             }
         }
     }
-    public void buscarBus(String destino){
+    public void buscarBus(String destino, String horario){
         if(buses.isEmpty()){
             System.out.println("No hay buses en este horario");
         }

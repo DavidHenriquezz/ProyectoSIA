@@ -47,10 +47,14 @@ public class SIA {
                     terminal.buscarBus(patente);
                     break;
                 case 3:
-                    String Salida;
+                    String Salida, hora;
                     System.out.println("Ingrese la salida del bus: ");
-                    salida = lector.readLine();
-                    terminal.buscarBus(salida);
+                    Salida = lector.readLine();
+                    System.out.println("Ingrese la hora de salida del bus");
+                    hora = lector.readLine();
+                    
+                    
+                    terminal.buscarBus(Salida, hora);
                     break;
                 case 4:
                     menu.MostrarOpcionesPasajero();
