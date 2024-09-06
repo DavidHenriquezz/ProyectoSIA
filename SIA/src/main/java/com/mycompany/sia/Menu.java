@@ -16,9 +16,10 @@ public class Menu {
     public void MostrarOpciones(){
         System.out.println("Opcion 1: Mostrar Buses");
         System.out.println("Opcion 2: Buscar Bus");
-        System.out.println("Opcion 3: Modificar Bus");
-        System.out.println("Opcion 4: Gestionar Pasajeros");
-        System.out.println("Opcion 5: Salir");
+        System.out.println("Opcion 3: Buscar Bus Por Su Salida");
+        System.out.println("Opcion 4: Modificar Bus");
+        System.out.println("Opcion 5: Gestionar Pasajeros");
+        System.out.println("Opcion 6: Salir");
     }
     
     public void MostrarOpcionesPasajero(){

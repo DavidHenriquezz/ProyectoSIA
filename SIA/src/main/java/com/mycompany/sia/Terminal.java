@@ -59,11 +59,30 @@ public class Terminal {
             }
         }
     }
+    public void buscarBus(String destino){
+        if(buses.isEmpty()){
+            System.out.println("No hay buses en este horario");
+        }
+        for(int i = 0; i<buses.size();i++){
+            if((buses.get(i).getDireccionSalida().equals(destino))){
+                if((buses.get(i).getCapacidadTotal() == 0)){
+                    System.out.println("BUS LLENO");
+                }
+                else{
+                    Bus bus = buses.get(i);
+                    System.out.println("Punto Partida:"+ bus.getDireccionSalida()+"- Punto Final: "+bus.getDireccionIda());
+                    System.out.println("Horario: "+ bus.getHorario());
+                    System.out.println("Capacidad: " + bus.getCapacidadDisponible());
+                }
+            }
+        }
+    }
     
     public void cargarBusesDesdeCSV(String BusesCSV) {
     String linea;
     try (BufferedReader br = new BufferedReader(new FileReader(BusesCSV))) {
         // Leer la primera línea (encabezado) y descartarla
+        System.out.println("Cargando archivo");
         br.readLine();
         
         // Leer línea por línea

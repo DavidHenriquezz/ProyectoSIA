@@ -32,7 +32,7 @@ public class SIA {
             Ingresar = lector.readLine();
             Opcion = Integer.parseInt(Ingresar);
             
-            if(Opcion == 5) break;
+            if(Opcion == 6) break;
             
             
             limpiarConsola();
@@ -47,6 +47,10 @@ public class SIA {
                     terminal.buscarBus(patente);
                     break;
                 case 3:
+                    String Salida;
+                    System.out.println("Ingrese la salida del bus: ");
+                    salida = lector.readLine();
+                    terminal.buscarBus(salida);
                     break;
                 case 4:
                     menu.MostrarOpcionesPasajero();
