@@ -20,35 +20,34 @@ public class Bus {
     private int costo;
     private int capacidadTotal;
     private int capacidadDisponible;
-    private ArrayList<Asiento> asientos;
+    private HashMap<Integer, Asiento> asientos;
 
-    public Bus(String patente, String direccionIda, String direccionSalida, String horario, int costo, int capacidadTotal, int capacidadDisponible, ArrayList<Asiento> asientos) {
+    public Bus(String patente, String direccionIda, String direccionSalida, String horario, int costo, int capacidadTotal, int capacidadDisponible, HashMap<Integer, Asiento> asientos) {
         this.patente = patente;
         this.direccionIda = direccionIda;
         this.direccionSalida = direccionSalida;
         this.horario = horario;
         this.costo = costo;
         this.capacidadTotal = capacidadTotal;
-        this.asientos = asientos != null ? asientos :new ArrayList<>();
-        
+        this.asientos = asientos != null ? asientos : new HashMap<>();
+
         // Inicializar los asientos...
         int ocupados = 0;
-        
-        for (Asiento asiento : this.asientos){
-            if (asiento.getOcupado()){
+        for (Asiento asiento : this.asientos.values()) {
+            if (asiento.getOcupado()) {
                 ocupados++;
             }
         }
         this.capacidadDisponible = capacidadTotal - ocupados;
-        
-        if (this.asientos.isEmpty()){
-            for(int i = 0; i < capacidadTotal; i++){
-                this.asientos.add(new Asiento("Asiento: " + (i + 1)));
+
+        if (this.asientos.isEmpty()) {
+            for (int i = 1; i <= capacidadTotal; i++) {
+                this.asientos.put(i, new Asiento("Asiento: " + i));
             }
             this.capacidadDisponible = capacidadTotal;
         }
     }
-    
+
     public Bus(String patente, int capacidadTotal, String horario, String direccionIda, String direccionSalida) {
         this.patente = patente;
         this.direccionIda = direccionIda;
@@ -56,8 +55,11 @@ public class Bus {
         this.horario = horario;
         this.capacidadTotal = capacidadTotal;
         this.capacidadDisponible = capacidadTotal;
-        this.asientos = null;
+        this.asientos = new HashMap<>();
     }
+
+    // Métodos getter y setter
+
     public String getPatente() {
         return patente;
     }
@@ -86,7 +88,7 @@ public class Bus {
         return capacidadDisponible;
     }
 
-    public ArrayList<Asiento> getAsientos() {
+    public HashMap<Integer, Asiento> getAsientos() {
         return asientos;
     }
 
@@ -98,7 +100,7 @@ public class Bus {
         this.direccionIda = direccionIda;
     }
 
-    public void setdireccionSalida (String direccionSalida) {
+    public void setDireccionSalida(String direccionSalida) {
         this.direccionSalida = direccionSalida;
     }
 
@@ -113,9 +115,9 @@ public class Bus {
     public void setCapacidadTotal(int capacidadTotal) {
         this.capacidadTotal = capacidadTotal;
         this.capacidadDisponible = capacidadTotal;
-        this.asientos = new ArrayList<>();
-        for(int i = 0; i<capacidadTotal;i++){
-            asientos.add(new Asiento("Asiento: " + (i + 1)));
+        this.asientos = new HashMap<>();
+        for (int i = 1; i <= capacidadTotal; i++) {
+            asientos.put(i, new Asiento("Asiento: " + i));
         }
     }
 
@@ -123,23 +125,24 @@ public class Bus {
         this.capacidadDisponible = capacidadDisponible;
     }
 
-    public void setAsientos(ArrayList<Asiento> asientos) {
+    public void setAsientos(HashMap<Integer, Asiento> asientos) {
         this.asientos = asientos;
     }
-    
-    public void ocuparAsiento(){
-        if(capacidadDisponible > 0){
-            for (Asiento asiento: asientos){
+
+    public void ocuparAsiento() {
+        if (capacidadDisponible > 0) {
+            for (int i = 1; i <= capacidadTotal; i++) {
+                Asiento asiento = asientos.get(i);
                 if (!asiento.getOcupado()) {
                     asiento.setOcupado(true);
                     capacidadDisponible--;
                     return;
                 }
             }
-        }else{
-            System.out.println("BUS LLENO ");
+        } else {
+            System.out.println("BUS LLENO");
         }
     }
-    
 }
+
     
