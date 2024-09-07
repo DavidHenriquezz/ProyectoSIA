@@ -143,6 +143,21 @@ public class Bus {
             System.out.println("BUS LLENO");
         }
     }
+    
+    public void ocuparAsiento(int numeroAsiento) {
+        if (numeroAsiento > 0 && numeroAsiento <= capacidadTotal) {
+            Asiento asiento = asientos.get(numeroAsiento);
+            if (!asiento.getOcupado()) {
+                asiento.setOcupado(true);
+                capacidadDisponible--;
+                System.out.println("Asiento " + numeroAsiento + " ocupado.");
+            } else {
+                System.out.println("El asiento " + numeroAsiento + " ya está ocupado.");
+            }
+        } else {
+            System.out.println("Número de asiento inválido.");
+        }
+    }
 }
 
 
