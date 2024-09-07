@@ -48,16 +48,26 @@ public class Asiento {
     
     public void mostrarAsiento(){
         System.out.println("Asiento: "+ numeroAsiento);
-        System.out.println("Estado: "+ ocupado);
+        System.out.println("Estado: "+ (ocupado ? "Ocupado" : "Libre"));
+        if(ocupado && pasajero != null){
+            pasajero.mostrarPasajero();
+        }
     }
     
-    public void ocupar(Bus bus){
+    public void ocupar(Bus bus, Pasajero pasajero){
         if(!ocupado){
+            this.pasajero = pasajero;
             ocupado = true;
             bus.ocuparAsiento();
         }else{
             System.out.println("Este asiento ya esta ocuapado:");
         }
     }
+    public void liberar()
+    {
+        pasajero = null;
+        ocupado = false;
+    }
 }
+
  

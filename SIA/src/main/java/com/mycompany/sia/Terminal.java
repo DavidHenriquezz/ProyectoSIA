@@ -42,7 +42,6 @@ public class Terminal {
             if((buses.get(i).getCapacidadDisponible() == 0)){
                 System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
                 System.out.println("BUS LLENO");
-                System.out.println("Punto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
                 System.out.println("\n");
             }
             else{
@@ -76,7 +75,6 @@ public class Terminal {
                     }
                 }
             }
-            System.out.println("     ...Su bus no existe...    ");
         }
     }
     public void buscarBus(String destino, String horario){
@@ -97,8 +95,21 @@ public class Terminal {
                     System.out.println("Capacidad: " + bus.getCapacidadDisponible());
                 }
             }
+            else{
+                System.out.println("...Su bus no existe...");
+                
+            }
         }
-        System.out.println("     ...Su bus no existe...    ");
+    }
+    
+    public Bus buscarBusPatente(String patente) {
+        for (Bus bus : buses) {
+            if (bus.getPatente().equals(patente)) {
+                return bus;
+            }
+        }
+        System.out.println("El bus con patente " + patente + " no fue encontrado.");
+        return null; // Return null if no bus is found
     }
     
     public void cargarBusesDesdeCSV(String BusesCSV) {

@@ -12,6 +12,7 @@ package com.mycompany.sia;
 import static com.mycompany.sia.Menu.limpiarConsola;
 import java.util.*;
 import java.io.*;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class SIA {
@@ -97,13 +98,41 @@ public class SIA {
                     menu.MostrarOpcionesPasajero();
                     String ingresarPasajero = lector.readLine();
                     int opcionPasajero = Integer.parseInt(ingresarPasajero);
-                    
+                    Bus bus;
                     switch (opcionPasajero){
                         case 1:
+                        // agregar
+                            System.out.println("Ingrese el bus que desea agregar un pasajero");
+                            patente = lector.readLine();
+                            bus = terminal.buscarBusPatente(patente);
+                            if(bus != null){
+                                System.out.println("Ingrese el numero de haciento que dese ocupar: ");
+                                int numeroAsiento = Integer.parseInt(lector.readLine());
+                                System.out.println("Ingrese el nombre del pasajero: ");
+                                //String nombrePasajero = lector.readLine();
+                                //Pasajero pasajero = new Pasajero();
+                                bus.ocuparAsiento(numeroAsiento);
                             
+                            } else{
+                                System.out.println("Bus no encontrado");
+                            }
+                            System.out.println("...Presione enter para limpiar la consola....");
+                            scanner.nextLine();
+                            limpiarConsola();                            
                             break;
                         case 2:
+                            System.out.println("Ingrese la patente del bus donde desea liberar un asiento: ");
+                            patente = lector.readLine();
+                            bus = terminal.buscarBusPatente(patente);
+                            if (bus != null) {
+                                System.out.println("Ingrese el número de asiento que desea liberar: ");
+                                int numeroAsiento = Integer.parseInt(lector.readLine());
+                                bus.liberarAsientos(numeroAsiento);
+                            } else {
+                                System.out.println("Bus no encontrado.");
+                            }
                             break;
+
                         case 3:
                             break;
                         case 4:
