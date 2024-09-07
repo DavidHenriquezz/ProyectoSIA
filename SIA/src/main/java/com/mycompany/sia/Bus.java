@@ -158,20 +158,20 @@ public class Bus {
             System.out.println("Número de asiento inválido.");
         }
     }
-    public void liberarAsientos(String patente) {
-        Bus bus = buscarBusPatente(patente);
+    /*public void liberarAsientos(String patente) {
+        Bus bus = //buscarBusPatente(patente);
         if (bus != null) {
             for (Asiento asiento : bus.getAsientos().values()) {
                 if (asiento.getOcupado()) {
                     asiento.setOcupado(false);
-                    bus.incrementarCapacidadDisponible(); // Update available capacity
+                    //bus.incrementarCapacidadDisponible(); // Update available capacity
                 }
             }
             System.out.println("Todos los asientos del bus con patente " + patente + " han sido liberados.");
         } else {
             System.out.println("No se encontró el bus con la patente especificada.");
         }
-    }
+    }*/
 
 }
 

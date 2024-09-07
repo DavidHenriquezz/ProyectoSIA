@@ -111,7 +111,7 @@ public class SIA {
                                 System.out.println("Ingrese el nombre del pasajero: ");
                                 //String nombrePasajero = lector.readLine();
                                 //Pasajero pasajero = new Pasajero();
-                                bus.ocuparAsiento(numeroAsiento);
+                                //bus.ocuparAsiento(numeroAsiento);
                             
                             } else{
                                 System.out.println("Bus no encontrado");
@@ -127,7 +127,7 @@ public class SIA {
                             if (bus != null) {
                                 System.out.println("Ingrese el número de asiento que desea liberar: ");
                                 int numeroAsiento = Integer.parseInt(lector.readLine());
-                                bus.liberarAsientos(numeroAsiento);
+                                //bus.liberarAsientos(numeroAsiento);
                             } else {
                                 System.out.println("Bus no encontrado.");
                             }
