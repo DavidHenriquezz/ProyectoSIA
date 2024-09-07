@@ -33,37 +33,79 @@ public class Terminal {
     public void mostrarBuses(){
         if (buses.isEmpty()){
             System.out.println("No hay buses disponible");
+            System.out.println("\n");
             return;
         }
         for(int i = 0; i<buses.size();i++)
         { 
             Bus bus = buses.get(i);
-            System.out.println("Bus "+ bus.getPatente()+ "- Capacidad: " + bus.getCapacidadDisponible());
+            if((buses.get(i).getCapacidadDisponible() == 0)){
+                System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
+                System.out.println("BUS LLENO");
+                System.out.println("Punto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
+                System.out.println("\n");
+            }
+            else{
+            System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
             System.out.println("Horario: "+ bus.getHorario());
-            System.out.println("Punto Partida: "+bus.getDireccionSalida()+"Punto Final: "+bus.getDireccionIda());
+            System.out.println("Punto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
+            System.out.println("\n");
+            }
         }
     }
 
     public void buscarBus(String patente){
         if (buses.isEmpty()){
             System.out.println("No hay buses disponibles");
+            System.out.println("\n");
         }
         else{
             for (int i = 0; i<buses.size();i++ ){
                 if ((buses.get(i)).getPatente().equals(patente)){
+                    if((buses.get(i).getCapacidadDisponible() == 0)){
+                        System.out.println("BUS LLENO");
+                        System.out.println("Porfavor usar otra patente");
+                        System.out.println("\n");
+                    }
+                    else{
                     Bus bus = buses.get(i);
-                    System.out.println("Bus "+ bus.getPatente()+ "- Capacidad: " + bus.getCapacidadDisponible());
+                    System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
+                    System.out.print("Horario: "+ bus.getHorario());
+                    System.out.println("\nPunto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
+                    System.out.println("\n");
+                    }
+                }
+            }
+            System.out.println("     ...Su bus no existe...    ");
+        }
+    }
+    public void buscarBus(String destino, String horario){
+        if(buses.isEmpty()){
+            System.out.println("No hay buses en este horario");
+            System.out.println("\n");
+        }
+        for(int i = 0; i<buses.size();i++){
+            if((buses.get(i).getDireccionSalida().equals(destino) && buses.get(i).getHorario().equals(horario))){
+                if((buses.get(i).getCapacidadDisponible() == 0)){
+                    System.out.println("BUS LLENO");
+                    System.out.println("\n");
+                }
+                else{
+                    Bus bus = buses.get(i);
+                    System.out.println("Punto Partida:"+ bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
                     System.out.println("Horario: "+ bus.getHorario());
-                    System.out.println("Punto Partida: "+bus.getDireccionSalida()+"Punto Final: "+bus.getDireccionIda());
+                    System.out.println("Capacidad: " + bus.getCapacidadDisponible());
                 }
             }
         }
+        System.out.println("     ...Su bus no existe...    ");
     }
     
     public void cargarBusesDesdeCSV(String BusesCSV) {
     String linea;
     try (BufferedReader br = new BufferedReader(new FileReader(BusesCSV))) {
         // Leer la primera línea (encabezado) y descartarla
+        System.out.println("...Cargando archivo de buses...");
         br.readLine();
         
         // Leer línea por línea

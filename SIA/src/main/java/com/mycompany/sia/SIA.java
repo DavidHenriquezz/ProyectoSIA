@@ -19,7 +19,7 @@ public class SIA {
         int Opcion;
         String Ingresar;
         Menu menu = new Menu();
-        
+        Scanner scanner =  new Scanner(System.in);
         ArrayList<Bus> buses = new ArrayList<>();
         Terminal terminal = new Terminal(buses);
         terminal.cargarBusesDesdeCSV("BusesCSV.csv");
@@ -32,30 +32,75 @@ public class SIA {
             Ingresar = lector.readLine();
             Opcion = Integer.parseInt(Ingresar);
             
-            if(Opcion == 5) break;
+            if(Opcion == 6) break;
             
             
             limpiarConsola();
             switch (Opcion) {
                 case 1:
                     terminal.mostrarBuses();
+                    //Scanner para limpiear la consola
+                    System.out.println("...Presione enter para limpiar la consola....");
+                    scanner.nextLine();
+                    limpiarConsola();
                     break;
+          
                 case 2:
                     String patente;
                     System.out.println("Ingrese la patente del bus que desea ver");
                     patente = lector.readLine();
                     terminal.buscarBus(patente);
+                    
+                    //Scanner para limpiear la consola
+                    System.out.println("...Presione enter para limpiar la consola....");
+                    scanner.nextLine();
+                    limpiarConsola();
                     break;
                 case 3:
+                    String Salida, hora;
+                    //Mostrar Ciudades De llegada
+                    menu.mostrarCiudadesOrdenadas();
+                    System.out.println("Ingrese su destino final: ");
+                    Salida = lector.readLine(); 
+                    System.out.println("...Presione enter para limpiar la consola....");
+                    scanner.nextLine();
+                    limpiarConsola();
+
+                    System.out.println("Ingrese la hora de salida del bus: ");
+                    hora = lector.readLine();
+                    terminal.buscarBus(Salida, hora);
+                    
+                    //Scanner para limpiear la consola
+                    System.out.println("...Presione enter para limpiar la consola....");
+                    scanner.nextLine();
+                    limpiarConsola();
                     break;
                 case 4:
+                    menu.mostrarOpcionesBuses();
+                    String ingresarBuses = lector.readLine();
+                    int opcionBus = Integer.parseInt(ingresarBuses);
+                    switch(opcionBus){
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                            
+                    }
+                    //Scanner para limpiear la consola
+                    System.out.println("...Presione enter para limpiar la consola....");
+                    scanner.nextLine();
+                    limpiarConsola();
+                    break;
+                case 5:
                     menu.MostrarOpcionesPasajero();
                     String ingresarPasajero = lector.readLine();
                     int opcionPasajero = Integer.parseInt(ingresarPasajero);
-                    limpiarConsola();
                     
                     switch (opcionPasajero){
                         case 1:
+                            
                             break;
                         case 2:
                             break;
@@ -64,6 +109,9 @@ public class SIA {
                         case 4:
                             break;
                     }
+                    System.out.println("...Presione enter para limpiar la consola....");
+                    scanner.nextLine();
+                    limpiarConsola();
                     break;
                 default:
                     System.out.println("Su opcion no existe");
