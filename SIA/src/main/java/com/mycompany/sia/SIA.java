@@ -66,7 +66,8 @@ public class SIA {
                     System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();
                     limpiarConsola();
-
+                    terminal.buscarBusLugar(Salida);
+                    
                     System.out.println("Ingrese la hora de salida del bus: ");
                     hora = lector.readLine();
                     terminal.buscarBus(Salida, hora);
