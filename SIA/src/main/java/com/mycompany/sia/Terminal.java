@@ -77,13 +77,13 @@ public class Terminal {
             }
         }
     }
-    public void buscarBus(String destino, String horario){
+    public void buscarBusLugar(String destino){
         if(buses.isEmpty()){
-            System.out.println("No hay buses en este horario");
+            System.out.println("No hay buses hacia este destino");
             System.out.println("\n");
         }
         for(int i = 0; i<buses.size();i++){
-            if((buses.get(i).getDireccionSalida().equals(destino) && buses.get(i).getHorario().equals(horario))){
+            if((buses.get(i).getDireccionSalida().equals(destino))){
                 if((buses.get(i).getCapacidadDisponible() == 0)){
                     System.out.println("BUS LLENO");
                     System.out.println("\n");
@@ -95,10 +95,31 @@ public class Terminal {
                     System.out.println("Capacidad: " + bus.getCapacidadDisponible());
                 }
             }
-            else{
-                System.out.println("...Su bus no existe...");
-                
+        }
+    }
+    public void buscarBus(String destino, String horario){
+        int pivote = 1;
+        if(buses.isEmpty()){
+            System.out.println("No hay buses en este horario");
+            System.out.println("\n");
+        }
+        for(int i = 0; i<buses.size();i++){
+            if((buses.get(i).getDireccionSalida().equals(destino) && buses.get(i).getHorario().equals(horario))){
+                pivote = 0;
+                if((buses.get(i).getCapacidadDisponible() == 0)){
+                    System.out.println("BUS LLENO");
+                    System.out.println("\n");
+                }
+                else{
+                    Bus bus = buses.get(i);
+                    System.out.println("Punto Partida:"+ bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
+                    System.out.println("Horario: "+ bus.getHorario());
+                    System.out.println("Capacidad: " + bus.getCapacidadDisponible());
+                }
             }
+        }
+        if (pivote == 1){
+            System.out.println("No hay buses disponibles");
         }
     }
     
