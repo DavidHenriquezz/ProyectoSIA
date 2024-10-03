@@ -11,6 +11,7 @@ package com.mycompany.sia;
  
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Bus {
     private String patente;
@@ -169,20 +170,33 @@ public class Bus {
         System.out.println("Número de asiento inválido.");
     }
 }
-    /*public void liberarAsientos(String patente) {
-        Bus bus = //buscarBusPatente(patente);
-        if (bus != null) {
-            for (Asiento asiento : bus.getAsientos().values()) {
-                if (asiento.getOcupado()) {
-                    asiento.setOcupado(false);
-                    //bus.incrementarCapacidadDisponible(); // Update available capacity
-                }
-            }
-            System.out.println("Todos los asientos del bus con patente " + patente + " han sido liberados.");
+    public void eliminarPasajero(int numeroAsiento) {
+    if (numeroAsiento > 0 && numeroAsiento <= capacidadTotal) {
+        Asiento asiento = asientos.get(numeroAsiento);
+        if (asiento != null && asiento.getOcupado()) {
+            asiento.setOcupado(false);  // Marcar el asiento como libre
+            asiento.setPasajero(null);  // Eliminar la referencia al pasajero
+            capacidadDisponible++;      // Incrementar la capacidad disponible
+            System.out.println("El pasajero del asiento " + numeroAsiento + " ha sido eliminado.");
         } else {
-            System.out.println("No se encontró el bus con la patente especificada.");
+            System.out.println("El asiento " + numeroAsiento + " ya está libre o no existe.");
         }
-    }*/
+    } else {
+        System.out.println("Número de asiento inválido.");
+    }
+}
+    public void mostrarAsientos() {
+    System.out.println("Estado de los asientos:");
+    for (Map.Entry<Integer, Asiento> entry : asientos.entrySet()) {
+        int numeroAsiento = entry.getKey();
+        Asiento asiento = entry.getValue();
+        if (asiento.getOcupado()) {
+            System.out.println("Asiento " + numeroAsiento + ": Ocupado por " + asiento.getPasajero().getNombre());
+        } else {
+            System.out.println("Asiento " + numeroAsiento + ": Disponible");
+        }
+    }
+}
 
 }
 

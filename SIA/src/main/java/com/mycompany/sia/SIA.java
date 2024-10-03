@@ -148,7 +148,18 @@ public class SIA {
                             break;
                         case 2:
                             //Eliminar pasajero
-                            
+                            System.out.println("Ingrese la patente del bus");
+                            String destinoEliminar= lector.readLine();
+                            Bus busPasajeroEliminar = terminal.buscarBusPatente(destinoEliminar);
+                            System.out.println("Bus seleccionado:");
+                            System.out.println("Patente: " + busPasajeroEliminar.getPatente());
+                            System.out.println("Salida: "+ busPasajeroEliminar.getDireccionSalida());
+                            System.out.println("Ida: "+ busPasajeroEliminar.getDireccionIda());
+                            System.out.println("Horario: "+ busPasajeroEliminar.getHorario());
+                            busPasajeroEliminar.mostrarAsientos();
+                            System.out.println("Ingrese el asiento que desea liberar");
+                            int asientoEliminar= Integer.parseInt(lector.readLine());
+                            busPasajeroEliminar.eliminarPasajero(asientoEliminar);
                             break;
                         case 3:
                             //Salir
