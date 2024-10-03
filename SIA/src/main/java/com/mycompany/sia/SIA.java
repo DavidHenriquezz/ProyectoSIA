@@ -104,7 +104,6 @@ public class SIA {
                             break;
                         case 3:
                             break;
-                            
                     }
                     //Scanner para limpiear la consola
                     System.out.println("...Presione enter para limpiar la consola....");
@@ -118,41 +117,27 @@ public class SIA {
                     Bus bus;
                     switch (opcionPasajero){
                         case 1:
-                        // agregar
-                            System.out.println("Ingrese el bus que desea agregar un pasajero");
-                            patente = lector.readLine();
-                            bus = terminal.buscarBusPatente(patente);
-                            if(bus != null){
-                                System.out.println("Ingrese el numero de haciento que dese ocupar: ");
-                                int numeroAsiento = Integer.parseInt(lector.readLine());
-                                System.out.println("Ingrese el nombre del pasajero: ");
-                                //String nombrePasajero = lector.readLine();
-                                //Pasajero pasajero = new Pasajero();
-                                //bus.ocuparAsiento(numeroAsiento);
-                            
-                            } else{
-                                System.out.println("Bus no encontrado");
+                            //Agregar pasajero
+                            Pasajero pasajero;
+                            System.out.println("Ingrese el nombre del pasajero");
+                            String nombre= lector.readLine();
+                            System.out.println("Ingrese la edad del pasajero");
+                            int edad = Integer.parseInt(lector.readLine());
+                            System.out.println("Ingrese el correo del pasajero(Si no desea ingresar correo coloque 'x')");
+                            String correo= lector.readLine();
+                            if (correo.equals('x')){
+                               pasajero = new Pasajero(nombre,edad);
                             }
-                            System.out.println("...Presione enter para limpiar la consola....");
-                            scanner.nextLine();
-                            limpiarConsola();                            
+                            else{
+                                pasajero = new Pasajero (nombre,edad,correo);
+                            }
+                            //Preguntar destino y numero de asiento
                             break;
                         case 2:
-                            System.out.println("Ingrese la patente del bus donde desea liberar un asiento: ");
-                            patente = lector.readLine();
-                            bus = terminal.buscarBusPatente(patente);
-                            if (bus != null) {
-                                System.out.println("Ingrese el número de asiento que desea liberar: ");
-                                int numeroAsiento = Integer.parseInt(lector.readLine());
-                                //bus.liberarAsientos(numeroAsiento);
-                            } else {
-                                System.out.println("Bus no encontrado.");
-                            }
+                            //Eliminar pasajero
                             break;
-
                         case 3:
-                            break;
-                        case 4:
+                            //Salir
                             break;
                     }
                     System.out.println("...Presione enter para limpiar la consola....");
