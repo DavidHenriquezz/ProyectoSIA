@@ -39,7 +39,7 @@ public class SIA {
             limpiarConsola();
             switch (Opcion) {
                 case 1:
-                    terminal.mostrarBuses();
+                    //terminal.mostrarBuses();
                     //Scanner para limpiear la consola
                     System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();

@@ -63,7 +63,8 @@ public class ControladorTerminal implements ActionListener{
            modificar.setVisible(true);
        }
        if (ae.getSource() == main.getjButtonMostrar()){
-           mostrar = new VentanaMostrar();
+           mostrar = new VentanaMostrar(terminal);
+           mostrar.getjButtonCerrar().addActionListener(this);
            mostrar.setAlwaysOnTop(true);
            mostrar.setVisible(true);
        }
@@ -74,6 +75,9 @@ public class ControladorTerminal implements ActionListener{
            pasajero.setAlwaysOnTop(true);
            pasajero.setVisible(true);
        }
-       
+       if (ae.getSource() == mostrar.getjButtonCerrar()){
+          mostrar.dispose();
+          return;
+       }
     }
 }

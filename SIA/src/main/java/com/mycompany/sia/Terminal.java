@@ -7,7 +7,7 @@ package com.mycompany.sia;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author David
@@ -45,7 +45,7 @@ public class Terminal {
             System.out.println("Bus con patente " + patente + " no ha sido encontrado");
         }
     }
-    public void mostrarBuses(){
+    public void mostrarBuses(DefaultTableModel tab){
         if (buses.isEmpty()){
             System.out.println("No hay buses disponible");
             System.out.println("\n");
@@ -54,17 +54,25 @@ public class Terminal {
         for(int i = 0; i<buses.size();i++)
         { 
             Bus bus = buses.get(i);
-            if((buses.get(i).getCapacidadDisponible() == 0)){
-                System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
-                System.out.println("BUS LLENO");
-                System.out.println("\n");
-            }
-            else{
+            //if((buses.get(i).getCapacidadDisponible() == 0)){
+            //    System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
+            //    System.out.println("BUS LLENO");
+            //    System.out.println("\n");
+            //}
+            //else{
             System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
             System.out.println("Horario: "+ bus.getHorario());
             System.out.println("Punto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
             System.out.println("\n");
-            }
+            String[] aux = new String[]{
+                bus.getPatente(),
+                String.valueOf(bus.getCapacidadDisponible()),
+                bus.getHorario(),
+                bus.getDireccionSalida(),
+                bus.getDireccionIda()
+            };
+            tab.addRow(aux);
+            //}
         }
     }
 

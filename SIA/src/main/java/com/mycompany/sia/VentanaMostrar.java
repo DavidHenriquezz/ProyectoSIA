@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.sia;
-
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
 /**
  *
  * @author Benjamín
@@ -13,8 +14,10 @@ public class VentanaMostrar extends javax.swing.JFrame {
     /**
      * Creates new form VentanaMostrar
      */
-    public VentanaMostrar() {
+    public VentanaMostrar(Terminal tt) {
         initComponents();
+        DefaultTableModel model = (DefaultTableModel) jTableDatos.getModel();
+        tt.mostrarBuses(model);
     }
 
     /**
@@ -29,6 +32,7 @@ public class VentanaMostrar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDatos = new javax.swing.JTable();
+        jButtonCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,10 +41,7 @@ public class VentanaMostrar extends javax.swing.JFrame {
 
         jTableDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Patente", "Capacidad", "Horario", "Punto Partida", "Punto Llegada"
@@ -48,15 +49,22 @@ public class VentanaMostrar extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableDatos);
 
+        jButtonCerrar.setText("Cerrar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(82, 82, 82))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonCerrar)
+                        .addGap(190, 190, 190))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,7 +73,9 @@ public class VentanaMostrar extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jButtonCerrar)
+                .addContainerGap())
         );
 
         pack();
@@ -101,12 +111,15 @@ public class VentanaMostrar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaMostrar().setVisible(true);
+                //new VentanaMostrar().setVisible(true);
             }
         });
     }
-
+    public JButton getjButtonCerrar(){
+        return jButtonCerrar;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDatos;

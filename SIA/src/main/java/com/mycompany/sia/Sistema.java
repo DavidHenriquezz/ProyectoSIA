@@ -4,7 +4,6 @@
  */
 package com.mycompany.sia;
 
-
 import javax.swing.JFrame;
 /**
  *
