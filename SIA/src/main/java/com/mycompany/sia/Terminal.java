@@ -30,6 +30,21 @@ public class Terminal {
     public void agregarBuses(Bus bus){
         buses.add(bus);
     }
+    public void eliminarBus(String patente){
+        boolean eliminado = false;
+        
+        for (int i = 0 ; i < buses.size(); i++){
+            if (buses.get(i).getPatente().equals(patente)){
+                buses.remove(i);
+                eliminado = true;
+                System.out.println("Bus con patente " + patente + " Ha sido eliminado con exito");
+                break;
+            }
+        }
+        if (!eliminado){
+            System.out.println("Bus con patente " + patente + " no ha sido encontrado");
+        }
+    }
     public void mostrarBuses(){
         if (buses.isEmpty()){
             System.out.println("No hay buses disponible");

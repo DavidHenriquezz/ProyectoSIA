@@ -83,8 +83,24 @@ public class SIA {
                     int opcionBus = Integer.parseInt(ingresarBuses);
                     switch(opcionBus){
                         case 1:
+                            System.out.println("Ingrese la pantente del nuevo bus");
+                            String patenteNew= lector.readLine();
+                            System.out.println("Ingrese la capacidad del nuevo bus");
+                            int capacidadNew= Integer.parseInt(lector.readLine());
+                            System.out.println("Ingrese el horario del nuevo bus");
+                            String horarioNew = lector.readLine();
+                            System.out.println("Ingrese la dirección de ida del nuevo bus");
+                            String idaNew= lector.readLine();
+                            System.out.println("Ingrese de donde sale el nuevo bus");
+                            String salidaNew= lector.readLine();
+                            Bus nuevoBus = new Bus(patenteNew, capacidadNew, horarioNew, idaNew, salidaNew);
+                            terminal.agregarBuses(nuevoBus);
+                            System.out.println("Bus agregado con exito");
                             break;
                         case 2:
+                            System.out.println("Ingrese la pantente del bus que desea eliminar");
+                            String patenteEliminar= lector.readLine();
+                            terminal.eliminarBus(patenteEliminar);
                             break;
                         case 3:
                             break;
