@@ -132,9 +132,23 @@ public class SIA {
                                 pasajero = new Pasajero (nombre,edad,correo);
                             }
                             //Preguntar destino y numero de asiento
+                            
+                            System.out.println("Ingrese la patente del bus(Destino)");
+                            String destino= lector.readLine();
+                            Bus busPasajero = terminal.buscarBusPatente(destino);
+                            System.out.println("Bus seleccionado:");
+                            System.out.println("Patente: " + busPasajero.getPatente());
+                            System.out.println("Salida: "+ busPasajero.getDireccionSalida());
+                            System.out.println("Ida: "+ busPasajero.getDireccionIda());
+                            System.out.println("Horario: "+ busPasajero.getHorario());
+                            System.out.println("Capacidad disponible: "+ busPasajero.getCapacidadDisponible());
+                            System.out.println("Ingrese el asiento que desea");
+                            int asiento= Integer.parseInt(lector.readLine());
+                            busPasajero.ocuparAsiento(asiento, pasajero);
                             break;
                         case 2:
                             //Eliminar pasajero
+                            
                             break;
                         case 3:
                             //Salir

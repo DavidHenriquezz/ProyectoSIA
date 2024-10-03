@@ -38,14 +38,18 @@ public class Asiento {
     public void setOcupado(boolean ocupado) {
         this.ocupado = ocupado;
     }
-
+    public void setPasajero(Pasajero pasajero) {
+        this.pasajero = pasajero;
+    }
     public String getNumeroAsiento() {
         return numeroAsiento;
     }
     public boolean getOcupado(){
         return ocupado;
     }
-    
+    public Pasajero getPasajero() {
+        return pasajero;
+    }
     public void mostrarAsiento(){
         System.out.println("Asiento: "+ numeroAsiento);
         System.out.println("Estado: "+ (ocupado ? "Ocupado" : "Libre"));

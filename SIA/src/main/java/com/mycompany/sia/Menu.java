@@ -26,8 +26,7 @@ public class Menu {
     public void MostrarOpcionesPasajero(){
         System.out.println("Opcion 1: Agregar Pasajero");
         System.out.println("Opcion 2: Eliminar Pasajero");
-        System.out.println("Opcion 3: Modificar Pasajero");
-        System.out.println("Opcion 4: Salir");
+        System.out.println("Opcion 3: Salir");
     }
     public void mostrarOpcionesBuses(){
         System.out.println("Opcion 1: Agregar Bus");

@@ -30,8 +30,15 @@ public class Bus {
         this.costo = costo;
         this.capacidadTotal = capacidadTotal;
         this.asientos = asientos != null ? asientos : new HashMap<>();
-
+        
+        
+        if (this.asientos.isEmpty()) {
+            for (int i = 1; i <= capacidadTotal; i++) {
+                this.asientos.put(i, new Asiento("Asiento: " + i));
+            }
+        }
         // Inicializar los asientos...
+        
         int ocupados = 0;
         for (Asiento asiento : this.asientos.values()) {
             if (asiento.getOcupado()) {
@@ -39,13 +46,6 @@ public class Bus {
             }
         }
         this.capacidadDisponible = capacidadTotal - ocupados;
-
-        if (this.asientos.isEmpty()) {
-            for (int i = 1; i <= capacidadTotal; i++) {
-                this.asientos.put(i, new Asiento("Asiento: " + i));
-            }
-            this.capacidadDisponible = capacidadTotal;
-        }
     }
 
     public Bus(String patente, int capacidadTotal, String horario, String direccionIda, String direccionSalida) {
@@ -56,7 +56,13 @@ public class Bus {
         this.capacidadTotal = capacidadTotal;
         this.capacidadDisponible = capacidadTotal;
         this.asientos = new HashMap<>();
+
+        // Inicializar los asientos...
+        for (int i = 1; i <= capacidadTotal; i++) {
+            this.asientos.put(i, new Asiento("Asiento: " + i));
+        }
     }
+
 
     // Métodos getter y setter
 
@@ -145,19 +151,24 @@ public class Bus {
     }
     
     public void ocuparAsiento(int numeroAsiento, Pasajero pasajero) {
-        if (numeroAsiento > 0 && numeroAsiento <= capacidadTotal) {
-            Asiento asiento = asientos.get(numeroAsiento);
-            if (!asiento.getOcupado()) {
+    if (numeroAsiento > 0 && numeroAsiento <= capacidadTotal) {
+        Asiento asiento = asientos.get(numeroAsiento);
+        if (asiento != null){
+            if (!asiento.getOcupado()){
                 asiento.setOcupado(true);
+                asiento.setPasajero(pasajero);
                 capacidadDisponible--;
-                System.out.println("Asiento " + numeroAsiento + " ocupado.");
+                System.out.println("Asiento " + numeroAsiento + " ocupado por " + pasajero.getNombre());
             } else {
                 System.out.println("El asiento " + numeroAsiento + " ya está ocupado.");
             }
         } else {
-            System.out.println("Número de asiento inválido.");
+            System.out.println("El asiento número " + numeroAsiento + " no existe.");
         }
+    } else {
+        System.out.println("Número de asiento inválido.");
     }
+}
     /*public void liberarAsientos(String patente) {
         Bus bus = //buscarBusPatente(patente);
         if (bus != null) {
