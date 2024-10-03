@@ -4,6 +4,9 @@
  */
 package com.mycompany.sia;
 
+import java.awt.Dialog;
+import javax.swing.JFrame;
+import javax.swing.JButton;
 /**
  *
  * @author Benjamín
@@ -113,7 +116,12 @@ public class VentanaModificar extends javax.swing.JFrame {
             }
         });
     }
-
+    public JButton getjButtonAgregar(){
+        return jButtonAgregar;
+    }
+    public JButton getjButtonEliminar(){
+        return jButtonEliminar;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonEliminar;

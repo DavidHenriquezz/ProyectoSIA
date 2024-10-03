@@ -4,6 +4,9 @@
  */
 package com.mycompany.sia;
 
+import java.awt.Dialog;
+import javax.swing.JFrame;
+import javax.swing.JButton;
 /**
  *
  * @author Benjamín
@@ -128,6 +131,10 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
                 new VentanaBuscar1().setVisible(true);
             }
         });
+    }
+    
+    public JButton getjButtonBuscar(){
+        return jButtonBuscar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
