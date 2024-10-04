@@ -149,17 +149,38 @@ public class SIA {
                         case 2:
                             //Eliminar pasajero
                             System.out.println("Ingrese la patente del bus");
-                            String destinoEliminar= lector.readLine();
+                            String destinoEliminar = lector.readLine();
                             Bus busPasajeroEliminar = terminal.buscarBusPatente(destinoEliminar);
-                            System.out.println("Bus seleccionado:");
-                            System.out.println("Patente: " + busPasajeroEliminar.getPatente());
-                            System.out.println("Salida: "+ busPasajeroEliminar.getDireccionSalida());
-                            System.out.println("Ida: "+ busPasajeroEliminar.getDireccionIda());
-                            System.out.println("Horario: "+ busPasajeroEliminar.getHorario());
-                            busPasajeroEliminar.mostrarAsientos();
-                            System.out.println("Ingrese el asiento que desea liberar");
-                            int asientoEliminar= Integer.parseInt(lector.readLine());
-                            busPasajeroEliminar.eliminarPasajero(asientoEliminar);
+
+                            if (busPasajeroEliminar != null) {
+                                System.out.println("Bus seleccionado:");
+                                System.out.println("Patente: " + busPasajeroEliminar.getPatente());
+                                System.out.println("Salida: " + busPasajeroEliminar.getDireccionSalida());
+                                System.out.println("Ida: " + busPasajeroEliminar.getDireccionIda());
+                                System.out.println("Horario: " + busPasajeroEliminar.getHorario());
+
+                                busPasajeroEliminar.mostrarAsientos();
+
+                                System.out.println("Ingrese el asiento que desea liberar");
+                                try {
+                                    int asientoEliminar;
+                                    try {
+                                        asientoEliminar = Integer.parseInt(lector.readLine());
+                                    } catch (NumberFormatException e) {
+                                        // Aquí lanzamos nuestra excepción personalizada
+                                        throw new FormatoNumeroInvalidoException("Error: El número de asiento debe ser un valor numérico.");
+                                    }
+                                    busPasajeroEliminar.eliminarPasajero(asientoEliminar);
+                                } catch (FormatoNumeroInvalidoException e) {
+                                    System.out.println(e.getMessage());
+                                } catch (AsientoInvalidoException e) {
+                                    System.out.println("Error: " + e.getMessage());
+                                } catch (Exception e) {
+                                    System.out.println("Error inesperado: " + e.getMessage());
+                                }
+                            } else {
+                                System.out.println("No se encontró ningún bus con la patente: " + destinoEliminar);
+                            }
                             break;
                         case 3:
                             //Salir
