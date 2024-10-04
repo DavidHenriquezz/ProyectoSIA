@@ -60,10 +60,10 @@ public class Terminal {
             //    System.out.println("\n");
             //}
             //else{
-            System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
-            System.out.println("Horario: "+ bus.getHorario());
-            System.out.println("Punto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
-            System.out.println("\n");
+            //System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
+            //System.out.println("Horario: "+ bus.getHorario());
+            //System.out.println("Punto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
+            //System.out.println("\n");
             String[] aux = new String[]{
                 bus.getPatente(),
                 String.valueOf(bus.getCapacidadDisponible()),

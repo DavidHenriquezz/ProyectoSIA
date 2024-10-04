@@ -33,6 +33,7 @@ public class VentanaModificar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButtonAgregar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +46,8 @@ public class VentanaModificar extends javax.swing.JFrame {
         jButtonAgregar.setText("Agregar");
 
         jButtonEliminar.setText("Eliminar");
+
+        jButtonVolver.setText("Volver");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,6 +67,10 @@ public class VentanaModificar extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(jButtonVolver)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,7 +83,9 @@ public class VentanaModificar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAgregar)
                     .addComponent(jButtonEliminar))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonVolver)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,9 +131,13 @@ public class VentanaModificar extends javax.swing.JFrame {
     public JButton getjButtonEliminar(){
         return jButtonEliminar;
     }
+    public JButton getjButtonVolver(){
+        return jButtonVolver;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

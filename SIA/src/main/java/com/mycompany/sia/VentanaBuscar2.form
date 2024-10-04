@@ -51,7 +51,10 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
-                      <Component id="jButtonBuscar" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButtonVolver" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonBuscar" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="86" max="32767" attributes="0"/>
@@ -79,7 +82,9 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonBuscar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="174" max="32767" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <Component id="jButtonVolver" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -140,6 +145,11 @@
     <Component class="javax.swing.JButton" name="jButtonBuscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonVolver">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -34,6 +34,7 @@ public class VentanaPasajero extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButtonAgregar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Escoja una opción:");
@@ -55,14 +56,12 @@ public class VentanaPasajero extends javax.swing.JFrame {
             }
         });
 
+        jButtonVolver.setText("Volver");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
-                .addContainerGap(29, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,6 +74,15 @@ public class VentanaPasajero extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonEliminar)
                         .addGap(29, 29, 29))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jButtonVolver)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,7 +95,9 @@ public class VentanaPasajero extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAgregar)
                     .addComponent(jButtonEliminar))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonVolver)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,9 +147,13 @@ public class VentanaPasajero extends javax.swing.JFrame {
     public JButton getjButtonEliminar(){
         return jButtonEliminar;
     }
+    public JButton getjButtonVolver(){
+        return jButtonVolver;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

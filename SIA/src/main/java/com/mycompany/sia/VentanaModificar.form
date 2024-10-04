@@ -40,6 +40,11 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+              <Component id="jButtonVolver" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -54,7 +59,9 @@
                   <Component id="jButtonAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonVolver" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,6 +91,11 @@
     <Component class="javax.swing.JButton" name="jButtonEliminar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonVolver">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
     </Component>
   </SubComponents>

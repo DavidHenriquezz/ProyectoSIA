@@ -4,6 +4,9 @@
  */
 package com.mycompany.sia;
 
+import java.awt.Dialog;
+import javax.swing.JFrame;
+import javax.swing.JButton;
 /**
  *
  * @author Benjamín
@@ -120,7 +123,9 @@ public class VentanaEliminarBus extends javax.swing.JFrame {
             }
         });
     }
-
+    public JButton getjButtonEliminar(){
+        return jButtonEliminar;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JLabel jLabel1;

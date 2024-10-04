@@ -4,6 +4,9 @@
  */
 package com.mycompany.sia;
 
+import java.awt.Dialog;
+import javax.swing.JFrame;
+import javax.swing.JButton;
 /**
  *
  * @author Benjamín
@@ -36,10 +39,10 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
         jTextFieldCorreo = new javax.swing.JTextField();
         jTextFieldPatente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonContinuar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldNumAsiento = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jButtonAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,11 +62,11 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
 
         jLabel6.setText("Mostrar datos del bus después de continuar");
 
-        jButton1.setText("Continuar");
+        jButtonContinuar.setText("Continuar");
 
         jLabel7.setText("Número de asiento deseado:");
 
-        jButton2.setText("Agregar");
+        jButtonAgregar.setText("Agregar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,7 +101,7 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
                                         .addComponent(jTextFieldPatente)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addGap(0, 0, Short.MAX_VALUE)
-                                            .addComponent(jButton1)
+                                            .addComponent(jButtonContinuar)
                                             .addGap(56, 56, 56)))))
                             .addComponent(jLabel6)
                             .addGroup(layout.createSequentialGroup()
@@ -107,7 +110,7 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
                                 .addComponent(jTextFieldNumAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
-                        .addComponent(jButton2)))
+                        .addComponent(jButtonAgregar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -132,7 +135,7 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jTextFieldPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jButtonContinuar)
                 .addGap(7, 7, 7)
                 .addComponent(jLabel6)
                 .addGap(27, 27, 27)
@@ -140,7 +143,7 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jTextFieldNumAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(jButton2)
+                .addComponent(jButtonAgregar)
                 .addContainerGap(81, Short.MAX_VALUE))
         );
 
@@ -181,10 +184,15 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
             }
         });
     }
-
+    public JButton getjButtonAgregar(){
+        return jButtonAgregar;
+    }
+    public JButton getjButtonContinuar(){
+        return jButtonContinuar;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonAgregar;
+    private javax.swing.JButton jButtonContinuar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

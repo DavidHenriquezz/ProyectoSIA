@@ -4,6 +4,9 @@
  */
 package com.mycompany.sia;
 
+import java.awt.Dialog;
+import javax.swing.JFrame;
+import javax.swing.JButton;
 /**
  *
  * @author Benjamín
@@ -162,7 +165,9 @@ public class VentanaAgregarBus extends javax.swing.JFrame {
             }
         });
     }
-
+    public JButton getjButtonAgregar(){
+        return jButtonAgregar;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregar;
     private javax.swing.JLabel jLabel1;

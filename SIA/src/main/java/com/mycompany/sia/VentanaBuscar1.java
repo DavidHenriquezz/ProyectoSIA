@@ -33,6 +33,7 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldPatente = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +55,8 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
             }
         });
 
+        jButtonVolver.setText("Volver");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,8 +72,10 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(jButtonBuscar)))
+                        .addGap(207, 207, 207)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonVolver)
+                            .addComponent(jButtonBuscar))))
                 .addGap(74, 74, 74))
         );
         layout.setVerticalGroup(
@@ -84,7 +89,9 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
                     .addComponent(jTextFieldPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(jButtonBuscar)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(jButtonVolver)
+                .addGap(73, 73, 73))
         );
 
         pack();
@@ -136,9 +143,12 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
     public JButton getjButtonBuscar(){
         return jButtonBuscar;
     }
-
+    public JButton getjButtonVolver(){
+        return jButtonVolver;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextFieldPatente;
