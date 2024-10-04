@@ -80,7 +80,7 @@ public class VentanaPasajero extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
+                        .addGap(160, 160, 160)
                         .addComponent(jButtonVolver)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );

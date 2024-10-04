@@ -115,12 +115,14 @@ public class ControladorTerminal implements ActionListener{
        if (modificar != null && ae.getSource() == modificar.getjButtonAgregar()){
            agregarBus = new VentanaAgregarBus();
            agregarBus.getjButtonAgregar().addActionListener(this);
+           agregarBus.getjButtonVolver().addActionListener(this);
            agregarBus.setAlwaysOnTop(true);
            agregarBus.setVisible(true);
        }
        if (modificar != null && ae.getSource() == modificar.getjButtonEliminar()){
            eliminarBus = new VentanaEliminarBus();
            eliminarBus.getjButtonEliminar().addActionListener(this);
+           eliminarBus.getjButtonVolver().addActionListener(this);
            eliminarBus.setAlwaysOnTop(true);
            eliminarBus.setVisible(true);
        }
@@ -128,6 +130,7 @@ public class ControladorTerminal implements ActionListener{
            agregarPasajero = new VentanaAgregarPasajero();
            agregarPasajero.getjButtonAgregar().addActionListener(this);
            agregarPasajero.getjButtonContinuar().addActionListener(this);
+           agregarPasajero.getjButtonVolver().addActionListener(this);
            agregarPasajero.setAlwaysOnTop(true);
            agregarPasajero.setVisible(true);
        }
@@ -135,8 +138,29 @@ public class ControladorTerminal implements ActionListener{
            eliminarPasajero = new VentanaEliminarPasajero();
            eliminarPasajero.getjButtonEliminar().addActionListener(this);
            eliminarPasajero.getjButtonBuscar().addActionListener(this);
+           eliminarPasajero.getjButtonVolver().addActionListener(this);
            eliminarPasajero.setAlwaysOnTop(true);
            eliminarPasajero.setVisible(true);
+       }
+       
+       //Cerrar subventanas
+       if (agregarBus != null && ae.getSource() == agregarBus.getjButtonVolver()){
+           //System.out.println("Hola");
+           agregarBus.dispose();
+           return;
+       }
+       if (eliminarBus != null && ae.getSource()== eliminarBus.getjButtonVolver()){
+           eliminarBus.dispose();
+           return;
+       }
+       if (agregarPasajero != null && ae.getSource() == agregarPasajero.getjButtonVolver()){
+           //System.out.println("Hola");
+           agregarPasajero.dispose();
+           return;
+       }
+       if (eliminarPasajero != null && ae.getSource()== eliminarPasajero.getjButtonVolver()){
+           eliminarPasajero.dispose();
+           return;
        }
     }
 }

@@ -64,15 +64,26 @@ public class Terminal {
             //System.out.println("Horario: "+ bus.getHorario());
             //System.out.println("Punto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
             //System.out.println("\n");
-            String[] aux = new String[]{
-                bus.getPatente(),
-                String.valueOf(bus.getCapacidadDisponible()),
-                bus.getHorario(),
-                bus.getDireccionSalida(),
-                bus.getDireccionIda()
-            };
-            tab.addRow(aux);
-            //}
+            if(buses.get(i).getCapacidadDisponible() == 0){
+                String[] aux = new String[]{
+                    bus.getPatente(),
+                    "Lleno",
+                    bus.getHorario(),
+                    bus.getDireccionSalida(),
+                    bus.getDireccionIda()
+                };
+                tab.addRow(aux);
+            }
+            if(buses.get(i).getCapacidadDisponible() != 0){
+                String[] aux = new String[]{
+                    bus.getPatente(),
+                    String.valueOf(bus.getCapacidadDisponible()),
+                    bus.getHorario(),
+                    bus.getDireccionSalida(),
+                    bus.getDireccionIda()
+                };
+                tab.addRow(aux);
+            }
         }
     }
 
