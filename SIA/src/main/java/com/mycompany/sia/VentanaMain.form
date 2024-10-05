@@ -29,7 +29,7 @@
                   <Component id="jButtonMostrar" max="32767" attributes="0"/>
                   <Component id="jButtonBuscar1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace pref="87" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jButtonPasajero" max="32767" attributes="0"/>
                   <Component id="jButtonModificar" max="32767" attributes="0"/>
@@ -93,7 +93,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonBuscar1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar buses"/>
+        <Property name="text" type="java.lang.String" value="Buscar buses por patente"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscar1ActionPerformed"/>

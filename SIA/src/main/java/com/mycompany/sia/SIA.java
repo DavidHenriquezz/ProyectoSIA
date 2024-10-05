@@ -50,7 +50,7 @@ public class SIA {
                     String patente;
                     System.out.println("Ingrese la patente del bus que desea ver");
                     patente = lector.readLine();
-                    terminal.buscarBus(patente);
+                    //terminal.buscarBus(patente);
                     
                     //Scanner para limpiear la consola
                     System.out.println("...Presione enter para limpiar la consola....");

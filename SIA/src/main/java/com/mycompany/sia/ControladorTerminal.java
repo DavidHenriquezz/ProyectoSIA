@@ -116,28 +116,26 @@ public class ControladorTerminal implements ActionListener{
        }
        
        //Funciones ventanas principales
-       //if (buscar1 != null && ae.getSource() == buscar1.getjButtonBuscar()){
-           
-       //}
+       if (buscar1 != null && ae.getSource() == buscar1.getjButtonBuscar()){
+           String patente = buscar1.getjTextFieldPatente().getText();
+           DefaultTableModel model = (DefaultTableModel) buscar1.getjTableDatos().getModel();
+           terminal.buscarBus(patente, model);
+       }
        if (buscar2 != null && ae.getSource() == buscar2.getjButtonBuscar()){
            String salida = buscar2.getjTextFieldDestino().getText();
            String hora = buscar2.getjTextFieldHora().getText();
-           
-           System.out.println(salida);
-           System.out.println(hora);
            DefaultTableModel model = (DefaultTableModel) buscar2.getjTableDatos1().getModel();
-           System.out.println(model.getRowCount());
-           while (model.getRowCount() > 0){
+           while (model.getRowCount() > 0){ //limpiar tabla para cada vez que se ejecute
                model.removeRow(0);
            }
-           if (hora.isBlank()){
+           if (hora.isBlank()){ //Si no se ingresa hora
                terminal.buscarBusLugar(salida, model);
            }
-           else{
+           else{ //Si se ingresa hora
                System.out.println("HOLA");
                terminal.buscarBus(salida, hora, model);
            }
-           buscar2.getjTableDatos1().setVisible(true);
+           //buscar2.getjTableDatos1().setVisible(true);
        }
        //Acceder a las subventanas
        if (modificar != null && ae.getSource() == modificar.getjButtonAgregar()){//Agregar bus
