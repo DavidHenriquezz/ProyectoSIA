@@ -5,8 +5,12 @@
 package com.mycompany.sia;
 
 import java.awt.Dialog;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListModel;
 /**
  *
  * @author Benjamín
@@ -16,8 +20,12 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
     /**
      * Creates new form VentanaBuscar2
      */
-    public VentanaBuscar2() {
+    public VentanaBuscar2(Menu mm) {
         initComponents();
+        DefaultListModel<String> list = new DefaultListModel<>();
+        jListCiudades.setModel(list);
+        mm.mostrarCiudadesOrdenadas(list);
+        //jListCiudades.setModel(model);
     }
 
     /**
@@ -29,6 +37,8 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableDatos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListCiudades = new javax.swing.JList<>();
@@ -39,11 +49,23 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
         jTextFieldHora = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableDatos1 = new javax.swing.JTable();
+
+        jTableDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patente", "Capacidad", "Horario", "Punto Partida", "Punto Llegada"
+            }
+        ));
+        jScrollPane2.setViewportView(jTableDatos);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("Búsqueda por salida");
+        jLabel1.setText("Búsqueda por destino");
 
         jListCiudades.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -62,6 +84,16 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
 
         jButtonVolver.setText("Volver");
 
+        jTableDatos1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patente", "Capacidad", "Horario", "Punto Partida", "Punto Llegada"
+            }
+        ));
+        jScrollPane3.setViewportView(jTableDatos1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,36 +101,36 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel1))
+                        .addGap(43, 43, 43)
+                        .addComponent(jButtonBuscar)
+                        .addGap(246, 246, 246)
+                        .addComponent(jButtonVolver))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldHora, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldDestino))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonVolver)
-                            .addComponent(jButtonBuscar))))
-                .addContainerGap(86, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldHora, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldDestino))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel1)))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(jScrollPane3)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(5, 5, 5)
                 .addComponent(jLabel1)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,11 +142,13 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jButtonVolver)
-                .addGap(71, 71, 71))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonBuscar)
+                    .addComponent(jButtonVolver))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -150,7 +184,7 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaBuscar2().setVisible(true);
+                //new VentanaBuscar2().setVisible(true);
             }
         });
     }
@@ -159,6 +193,15 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
     }
     public JButton getjButtonVolver(){
         return jButtonVolver;
+    }
+    public JTextField getjTextFieldDestino(){
+        return jTextFieldDestino;
+    }
+    public JTextField getjTextFieldHora(){
+        return jTextFieldHora;
+    }
+    public JTable getjTableDatos1(){
+        return jTableDatos1;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
@@ -169,6 +212,10 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JList<String> jListCiudades;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTableDatos;
+    private javax.swing.JTable jTableDatos1;
     private javax.swing.JTextField jTextFieldDestino;
     private javax.swing.JTextField jTextFieldHora;
     // End of variables declaration//GEN-END:variables

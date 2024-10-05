@@ -10,6 +10,7 @@ import java.util.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +19,7 @@ import java.io.*;
 public class ControladorTerminal implements ActionListener{
     private ArrayList<Bus> buses;
     private Terminal terminal;
+    private Menu menu;
     private VentanaMain main;
     private VentanaModificar modificar;
     private VentanaMostrar mostrar;
@@ -33,6 +35,7 @@ public class ControladorTerminal implements ActionListener{
         buses = new ArrayList<>();
         terminal = new Terminal(buses);
         terminal.cargarBusesDesdeCSV("BusesCSV.csv");
+        menu = new Menu();
         main = new VentanaMain();
         main.getjButtonBuscar1().addActionListener(this);
         main.getjButtonBuscar2().addActionListener(this);
@@ -55,10 +58,11 @@ public class ControladorTerminal implements ActionListener{
            buscar1.setVisible(true);
            return;
        }
-       if (ae.getSource() == main.getjButtonBuscar2()){ //Buscar por salida
-           buscar2 = new VentanaBuscar2();
+       if (ae.getSource() == main.getjButtonBuscar2()){ //Buscar por destino
+           buscar2 = new VentanaBuscar2(menu);
            buscar2.getjButtonBuscar().addActionListener(this);
            buscar2.getjButtonVolver().addActionListener(this);
+           //buscar2.getjTableDatos1().setVisible(false);
            buscar2.setAlwaysOnTop(true);
            buscar2.setVisible(true);
            return;
@@ -111,30 +115,57 @@ public class ControladorTerminal implements ActionListener{
            return;
        }
        
+       //Funciones ventanas principales
+       //if (buscar1 != null && ae.getSource() == buscar1.getjButtonBuscar()){
+           
+       //}
+       if (buscar2 != null && ae.getSource() == buscar2.getjButtonBuscar()){
+           String salida = buscar2.getjTextFieldDestino().getText();
+           String hora = buscar2.getjTextFieldHora().getText();
+           
+           System.out.println(salida);
+           System.out.println(hora);
+           DefaultTableModel model = (DefaultTableModel) buscar2.getjTableDatos1().getModel();
+           System.out.println(model.getRowCount());
+           while (model.getRowCount() > 0){
+               model.removeRow(0);
+           }
+           if (hora.isBlank()){
+               terminal.buscarBusLugar(salida, model);
+           }
+           else{
+               System.out.println("HOLA");
+               terminal.buscarBus(salida, hora, model);
+           }
+           buscar2.getjTableDatos1().setVisible(true);
+       }
        //Acceder a las subventanas
-       if (modificar != null && ae.getSource() == modificar.getjButtonAgregar()){
+       if (modificar != null && ae.getSource() == modificar.getjButtonAgregar()){//Agregar bus
            agregarBus = new VentanaAgregarBus();
            agregarBus.getjButtonAgregar().addActionListener(this);
            agregarBus.getjButtonVolver().addActionListener(this);
            agregarBus.setAlwaysOnTop(true);
            agregarBus.setVisible(true);
        }
-       if (modificar != null && ae.getSource() == modificar.getjButtonEliminar()){
+       if (modificar != null && ae.getSource() == modificar.getjButtonEliminar()){ //Eliminar bus
            eliminarBus = new VentanaEliminarBus();
            eliminarBus.getjButtonEliminar().addActionListener(this);
            eliminarBus.getjButtonVolver().addActionListener(this);
            eliminarBus.setAlwaysOnTop(true);
            eliminarBus.setVisible(true);
        }
-       if (pasajero != null && ae.getSource() == pasajero.getjButtonAgregar()){
+       if (pasajero != null && ae.getSource() == pasajero.getjButtonAgregar()){ //Agregar pasajero
            agregarPasajero = new VentanaAgregarPasajero();
            agregarPasajero.getjButtonAgregar().addActionListener(this);
            agregarPasajero.getjButtonContinuar().addActionListener(this);
            agregarPasajero.getjButtonVolver().addActionListener(this);
+           agregarPasajero.getjLabelAsientoDeseado().setVisible(false);
+           agregarPasajero.getjTextFieldNumAsiento().setVisible(false);
+           agregarPasajero.getjButtonAgregar().setVisible(false);
            agregarPasajero.setAlwaysOnTop(true);
            agregarPasajero.setVisible(true);
        }
-       if (pasajero != null && ae.getSource() == pasajero.getjButtonEliminar()){
+       if (pasajero != null && ae.getSource() == pasajero.getjButtonEliminar()){ //Eliminar pasajero
            eliminarPasajero = new VentanaEliminarPasajero();
            eliminarPasajero.getjButtonEliminar().addActionListener(this);
            eliminarPasajero.getjButtonBuscar().addActionListener(this);
@@ -145,7 +176,6 @@ public class ControladorTerminal implements ActionListener{
        
        //Cerrar subventanas
        if (agregarBus != null && ae.getSource() == agregarBus.getjButtonVolver()){
-           //System.out.println("Hola");
            agregarBus.dispose();
            return;
        }
@@ -154,7 +184,6 @@ public class ControladorTerminal implements ActionListener{
            return;
        }
        if (agregarPasajero != null && ae.getSource() == agregarPasajero.getjButtonVolver()){
-           //System.out.println("Hola");
            agregarPasajero.dispose();
            return;
        }

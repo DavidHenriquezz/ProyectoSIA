@@ -12,6 +12,8 @@ import java.io.IOException;
  */
 
 import java.util.Arrays;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 public class Menu {
     
     public void MostrarOpciones(){
@@ -39,7 +41,7 @@ public class Menu {
             System.out.println("");
 }
     }
-        public void mostrarCiudadesOrdenadas() {
+        public void mostrarCiudadesOrdenadas(DefaultListModel<String> model) {
         // Array con las ciudades de dirección de ida
         String[] ciudades = {
             "Santiago", "Antofagasta", "Temuco", "La Serena", "Santiago", 
@@ -79,9 +81,10 @@ public class Menu {
         Arrays.sort(ciudadesUnicas);
 
         // Mostrar las ciudades ordenadas y sin duplicados
-        System.out.println("Ciudades de ida ordenadas alfabéticamente (sin duplicados):\n");
+        //System.out.println("Ciudades de ida ordenadas alfabéticamente (sin duplicados):\n");
         for (String ciudad : ciudadesUnicas) {
-            System.out.println(ciudad);
+            //System.out.println(ciudad);
+            model.addElement(ciudad);
         }
     }
     

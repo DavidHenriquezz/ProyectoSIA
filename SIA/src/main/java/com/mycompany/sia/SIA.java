@@ -60,17 +60,17 @@ public class SIA {
                 case 3:
                     String Salida, hora;
                     //Mostrar Ciudades De llegada
-                    menu.mostrarCiudadesOrdenadas();
+                    //menu.mostrarCiudadesOrdenadas();
                     System.out.println("Ingrese su destino final: ");
                     Salida = lector.readLine(); 
                     System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();
                     limpiarConsola();
-                    terminal.buscarBusLugar(Salida);
+                    //terminal.buscarBusLugar(Salida);
                     
                     System.out.println("Ingrese la hora de salida del bus: ");
                     hora = lector.readLine();
-                    terminal.buscarBus(Salida, hora);
+                    //terminal.buscarBus(Salida, hora);
                     
                     //Scanner para limpiear la consola
                     System.out.println("...Presione enter para limpiar la consola....");

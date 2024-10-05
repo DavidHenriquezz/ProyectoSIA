@@ -111,13 +111,14 @@ public class Terminal {
             }
         }
     }
-    public void buscarBusLugar(String destino){
+    public void buscarBusLugar(String destino, DefaultTableModel mm){
+        System.out.println(destino);
         if(buses.isEmpty()){
             System.out.println("No hay buses hacia este destino");
             System.out.println("\n");
         }
         for(int i = 0; i<buses.size();i++){
-            if((buses.get(i).getDireccionSalida().equals(destino))){
+            if((buses.get(i).getDireccionIda().equals(destino))){
                 if((buses.get(i).getCapacidadDisponible() == 0)){
                     System.out.println("BUS LLENO");
                     System.out.println("\n");
@@ -127,18 +128,26 @@ public class Terminal {
                     System.out.println("Punto Partida:"+ bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
                     System.out.println("Horario: "+ bus.getHorario());
                     System.out.println("Capacidad: " + bus.getCapacidadDisponible());
+                    String[] aux = new String[]{
+                    bus.getPatente(),
+                    String.valueOf(bus.getCapacidadDisponible()),
+                    bus.getHorario(),
+                    bus.getDireccionSalida(),
+                    bus.getDireccionIda()
+                    };
+                    mm.addRow(aux);
                 }
             }
         }
     }
-    public void buscarBus(String destino, String horario){
+    public void buscarBus(String destino, String horario, DefaultTableModel mm){
         int pivote = 1;
         if(buses.isEmpty()){
             System.out.println("No hay buses en este horario");
             System.out.println("\n");
         }
         for(int i = 0; i<buses.size();i++){
-            if((buses.get(i).getDireccionSalida().equals(destino) && buses.get(i).getHorario().equals(horario))){
+            if((buses.get(i).getDireccionIda().equals(destino) && buses.get(i).getHorario().equals(horario))){
                 pivote = 0;
                 if((buses.get(i).getCapacidadDisponible() == 0)){
                     System.out.println("BUS LLENO");
@@ -149,6 +158,14 @@ public class Terminal {
                     System.out.println("Punto Partida:"+ bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
                     System.out.println("Horario: "+ bus.getHorario());
                     System.out.println("Capacidad: " + bus.getCapacidadDisponible());
+                    String[] aux = new String[]{
+                    bus.getPatente(),
+                    String.valueOf(bus.getCapacidadDisponible()),
+                    bus.getHorario(),
+                    bus.getDireccionSalida(),
+                    bus.getDireccionIda()
+                    };
+                    mm.addRow(aux);
                 }
             }
         }
