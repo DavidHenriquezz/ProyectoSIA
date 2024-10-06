@@ -191,6 +191,25 @@ public class Terminal {
         System.out.println("El bus con patente " + patente + " no fue encontrado.");
         return null; // Return null if no bus is found
     }
+
+    public void agregarBusAlCSV(Bus nuevoBus, String nombreArchivo) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(nombreArchivo, true))) {  // "true" para agregar sin sobreescribir
+            // Escribir el nuevo bus en una línea del archivo CSV
+            writer.println(
+                nuevoBus.getPatente() + "," +
+                nuevoBus.getCapacidadDisponible() + "," +
+                nuevoBus.getHorario() + "," +
+                nuevoBus.getDireccionSalida() + "," +
+                nuevoBus.getDireccionIda()
+            );
+            writer.flush();  // Forzar escritura inmediata en el archivo
+
+            System.out.println("Nuevo bus agregado al archivo CSV correctamente.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo CSV: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
     
     public void cargarBusesDesdeCSV(String BusesCSV) {
     String linea;

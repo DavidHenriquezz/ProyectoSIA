@@ -95,7 +95,12 @@ public class SIA {
                             String salidaNew= lector.readLine();
                             Bus nuevoBus = new Bus(patenteNew, capacidadNew, horarioNew, idaNew, salidaNew);
                             terminal.agregarBuses(nuevoBus);
-                            System.out.println("Bus agregado con exito");
+                            
+                            // Asegúrate de que este mensaje se imprime
+                            System.out.println("Agregando nuevo bus al archivo CSV...");
+                            terminal.agregarBusAlCSV(nuevoBus, "BusesCSV.csv");
+                            System.out.println("Bus agregado con éxito");
+                            
                             break;
                         case 2:
                             System.out.println("Ingrese la pantente del bus que desea eliminar");
