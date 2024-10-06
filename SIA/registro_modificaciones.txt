@@ -1,0 +1,4 @@
+2024-10-06 17:52:49 - Bus añadido: ZZZ
+2024-10-06 17:52:58 - Bus eliminado: ZZZ
+2024-10-06 17:54:56 - Bus añadido: zzz
+2024-10-06 17:55:00 - Bus eliminado: zzz

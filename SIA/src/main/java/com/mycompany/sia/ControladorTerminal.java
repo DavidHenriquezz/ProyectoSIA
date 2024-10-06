@@ -33,12 +33,14 @@ public class ControladorTerminal implements ActionListener{
     private VentanaEliminarBus eliminarBus;
     private VentanaAgregarPasajero agregarPasajero;
     private VentanaEliminarPasajero eliminarPasajero;
+    private RegistroModificaciones registro;
     
     public void iniciar(){
         try{
             buses = new ArrayList<>();
             terminal = new Terminal(buses);
             terminal.cargarBusesDesdeCSV("BusesCSV.csv");
+            registro = new RegistroModificaciones("src/main/java/registro_modificaciones.txt");
         }
         catch (IOException e){
              JOptionPane.showMessageDialog(null, "Error al cargar el archivo CSV: " + e.getMessage());
@@ -217,10 +219,12 @@ public class ControladorTerminal implements ActionListener{
                                 agregarBus.getjTextFieldHorario().getText(), agregarBus.getjTextFieldPuntoLlegada().getText(), 
                                 agregarBus.getjTextFieldPuntoPartida().getText());
             terminal.agregarBuses(nuevo);
+            registro.registrarModificacion("Bus añadido: " + nuevo.getPatente());
             agregarBus.getjLabelAgregado().setVisible(true);
         }
         if (eliminarBus != null && ae.getSource() == eliminarBus.getjButtonEliminar()){ //Eliminar Bus
             terminal.eliminarBus(eliminarBus.getjTextFieldPatente().getText());
+            registro.registrarModificacion("Bus eliminado: " + eliminarBus.getjTextFieldPatente().getText());
             eliminarBus.getjLabelEliminado().setVisible(true);
         }
         if (agregarPasajero != null) {
@@ -230,17 +234,17 @@ public class ControladorTerminal implements ActionListener{
                 int edad = Integer.parseInt(agregarPasajero.getjTextFieldEdad().getText());
                 String correo = agregarPasajero.getjTextFieldCorreo().getText();
 
-                // Crear el pasajero, asumiendo que "x" o vacío significa sin correo
+                
                 if (correo.equals("x") || correo.isBlank()) {
                     pp = new Pasajero(nombre, edad);
                 } else {
                     pp = new Pasajero(nombre, edad, correo);
                 }
-
+                registro.registrarModificacion("Pasajero añadido: " + nombre);
                 // Buscar el bus por patente
                 try {
                     String patente = agregarPasajero.getjTextFieldPatente().getText();
-                    bb = terminal.buscarBusPatente(patente); // Asumiendo que este método lanza una excepción si no se encuentra
+                    bb = terminal.buscarBusPatente(patente); 
 
                     // Si llegamos aquí, significa que el bus se encontró
                     DefaultTableModel model = (DefaultTableModel) agregarPasajero.getjTableDatos().getModel();
@@ -263,6 +267,7 @@ public class ControladorTerminal implements ActionListener{
         if (eliminarPasajero != null){
             if (ae.getSource() == eliminarPasajero.getjButtonBuscar()){
                 bb = terminal.buscarBusPatente(eliminarPasajero.getjTextFieldPatente().getText());
+                registro.registrarModificacion("Pasajero eliminado: " + eliminarPasajero.getjTextFieldPatente().getText());
                 bb.mostrarAsientos();
                 eliminarPasajero.getjLabelLiberar().setVisible(true);
                 eliminarPasajero.getjListAsientos().setVisible(true);
