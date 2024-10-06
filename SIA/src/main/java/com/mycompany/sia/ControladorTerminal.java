@@ -224,8 +224,8 @@ public class ControladorTerminal implements ActionListener{
         }
         if (eliminarBus != null && ae.getSource() == eliminarBus.getjButtonEliminar()){ //Eliminar Bus
             terminal.eliminarBus(eliminarBus.getjTextFieldPatente().getText());
-            registro.registrarModificacion("Bus eliminado: " + eliminarBus.getjTextFieldPatente().getText());
             eliminarBus.getjLabelEliminado().setVisible(true);
+            registro.registrarModificacion("Bus eliminado: " + eliminarBus.getjTextFieldPatente().getText());
         }
         if (agregarPasajero != null) {
             if (ae.getSource() == agregarPasajero.getjButtonContinuar()) {
@@ -240,7 +240,6 @@ public class ControladorTerminal implements ActionListener{
                 } else {
                     pp = new Pasajero(nombre, edad, correo);
                 }
-                registro.registrarModificacion("Pasajero añadido: " + nombre);
                 // Buscar el bus por patente
                 try {
                     String patente = agregarPasajero.getjTextFieldPatente().getText();
@@ -249,7 +248,7 @@ public class ControladorTerminal implements ActionListener{
                     // Si llegamos aquí, significa que el bus se encontró
                     DefaultTableModel model = (DefaultTableModel) agregarPasajero.getjTableDatos().getModel();
                     terminal.buscarBus(patente, model); // Llenar el modelo con la información del bus
-
+                    registro.registrarModificacion("Pasajero añadido: " + nombre);
                     // Mostrar la opción de seleccionar un asiento
                     agregarPasajero.getjLabelAsientoDeseado().setVisible(true);
                     agregarPasajero.getjTextFieldNumAsiento().setVisible(true);
@@ -267,7 +266,7 @@ public class ControladorTerminal implements ActionListener{
         if (eliminarPasajero != null){
             if (ae.getSource() == eliminarPasajero.getjButtonBuscar()){
                 bb = terminal.buscarBusPatente(eliminarPasajero.getjTextFieldPatente().getText());
-                registro.registrarModificacion("Pasajero eliminado: " + eliminarPasajero.getjTextFieldPatente().getText());
+                registro.registrarModificacion("Pasajero eliminado en el bus con patente: " + eliminarPasajero.getjTextFieldPatente().getText());
                 bb.mostrarAsientos();
                 eliminarPasajero.getjLabelLiberar().setVisible(true);
                 eliminarPasajero.getjListAsientos().setVisible(true);
