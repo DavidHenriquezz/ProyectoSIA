@@ -48,8 +48,8 @@ public class Pasajero {
     }
     
     public void mostrarPasajero(){
-        System.out.println("Nombre: "+ getNombre());
-        System.out.println("Edad: "+ getEdad());
-        System.out.println("Correo: "+ getCorreo());
+        //System.out.println("Nombre: "+ getNombre());
+        //System.out.println("Edad: "+ getEdad());
+        //System.out.println("Correo: "+ getCorreo());
     }
 }

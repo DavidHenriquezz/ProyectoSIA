@@ -69,7 +69,7 @@ public class Itinerario {
             this.Costo = Costo;
         }
         else{
-            System.out.println("El costo debe ser positivo");
+            //System.out.println("El costo debe ser positivo");
         }
     }
     
@@ -82,7 +82,7 @@ public class Itinerario {
             this.Capacidad = Capacidad;
         }
         else{
-            System.out.println("La capacidad debe ser mayor a 0");
+            //System.out.println("La capacidad debe ser mayor a 0");
         }
     }
 

@@ -17,23 +17,23 @@ import javax.swing.ListModel;
 public class Menu {
     
     public void MostrarOpciones(){
-        System.out.println("Opcion 1: Mostrar Buses");
-        System.out.println("Opcion 2: Buscar Bus");
-        System.out.println("Opcion 3: Buscar Bus Por Su Salida");
-        System.out.println("Opcion 4: Modificar Bus");
-        System.out.println("Opcion 5: Gestionar Pasajeros");
-        System.out.println("Opcion 6: Salir");
+        //System.out.println("Opcion 1: Mostrar Buses");
+        //System.out.println("Opcion 2: Buscar Bus");
+        //System.out.println("Opcion 3: Buscar Bus Por Su Salida");
+        //System.out.println("Opcion 4: Modificar Bus");
+        //System.out.println("Opcion 5: Gestionar Pasajeros");
+        //System.out.println("Opcion 6: Salir");
     }
     
     public void MostrarOpcionesPasajero(){
-        System.out.println("Opcion 1: Agregar Pasajero");
-        System.out.println("Opcion 2: Eliminar Pasajero");
-        System.out.println("Opcion 3: Salir");
+        //System.out.println("Opcion 1: Agregar Pasajero");
+        //System.out.println("Opcion 2: Eliminar Pasajero");
+        //System.out.println("Opcion 3: Salir");
     }
     public void mostrarOpcionesBuses(){
-        System.out.println("Opcion 1: Agregar Bus");
-        System.out.println("Opcion 2: Eliminar Bus");
-        System.out.println("Opcion 3: Salir");
+        //System.out.println("Opcion 1: Agregar Bus");
+        //System.out.println("Opcion 2: Eliminar Bus");
+        //System.out.println("Opcion 3: Salir");
     
     }
     public static void limpiarConsola() {

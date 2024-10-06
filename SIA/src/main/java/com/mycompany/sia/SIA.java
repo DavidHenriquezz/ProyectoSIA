@@ -29,7 +29,7 @@ public class SIA {
         while(true)
         {
             menu.MostrarOpciones();
-            System.out.println("Ingrese Su opcion: ");
+            //System.out.println("Ingrese Su opcion: ");
             Ingresar = lector.readLine();
             Opcion = Integer.parseInt(Ingresar);
             
@@ -41,19 +41,19 @@ public class SIA {
                 case 1:
                     //terminal.mostrarBuses();
                     //Scanner para limpiear la consola
-                    System.out.println("...Presione enter para limpiar la consola....");
+                    //System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();
                     limpiarConsola();
                     break;
           
                 case 2:
                     String patente;
-                    System.out.println("Ingrese la patente del bus que desea ver");
+                    //System.out.println("Ingrese la patente del bus que desea ver");
                     patente = lector.readLine();
                     //terminal.buscarBus(patente);
                     
                     //Scanner para limpiear la consola
-                    System.out.println("...Presione enter para limpiar la consola....");
+                    //System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();
                     limpiarConsola();
                     break;
@@ -61,19 +61,19 @@ public class SIA {
                     String Salida, hora;
                     //Mostrar Ciudades De llegada
                     //menu.mostrarCiudadesOrdenadas();
-                    System.out.println("Ingrese su destino final: ");
+                    //System.out.println("Ingrese su destino final: ");
                     Salida = lector.readLine(); 
-                    System.out.println("...Presione enter para limpiar la consola....");
+                    //System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();
                     limpiarConsola();
                     //terminal.buscarBusLugar(Salida);
                     
-                    System.out.println("Ingrese la hora de salida del bus: ");
+                    //System.out.println("Ingrese la hora de salida del bus: ");
                     hora = lector.readLine();
                     //terminal.buscarBus(Salida, hora);
                     
                     //Scanner para limpiear la consola
-                    System.out.println("...Presione enter para limpiar la consola....");
+                    //System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();
                     limpiarConsola();
                     break;
@@ -83,27 +83,27 @@ public class SIA {
                     int opcionBus = Integer.parseInt(ingresarBuses);
                     switch(opcionBus){
                         case 1:
-                            System.out.println("Ingrese la pantente del nuevo bus");
+                            //System.out.println("Ingrese la pantente del nuevo bus");
                             String patenteNew= lector.readLine();
-                            System.out.println("Ingrese la capacidad del nuevo bus");
+                            //System.out.println("Ingrese la capacidad del nuevo bus");
                             int capacidadNew= Integer.parseInt(lector.readLine());
-                            System.out.println("Ingrese el horario del nuevo bus");
+                            //System.out.println("Ingrese el horario del nuevo bus");
                             String horarioNew = lector.readLine();
-                            System.out.println("Ingrese la dirección de ida del nuevo bus");
+                            //System.out.println("Ingrese la dirección de ida del nuevo bus");
                             String idaNew= lector.readLine();
-                            System.out.println("Ingrese de donde sale el nuevo bus");
+                            //System.out.println("Ingrese de donde sale el nuevo bus");
                             String salidaNew= lector.readLine();
                             Bus nuevoBus = new Bus(patenteNew, capacidadNew, horarioNew, idaNew, salidaNew);
                             terminal.agregarBuses(nuevoBus);
                             
                             // Asegúrate de que este mensaje se imprime
-                            System.out.println("Agregando nuevo bus al archivo CSV...");
+                            //System.out.println("Agregando nuevo bus al archivo CSV...");
                             terminal.agregarBusAlCSV(nuevoBus, "BusesCSV.csv");
-                            System.out.println("Bus agregado con éxito");
+                            //System.out.println("Bus agregado con éxito");
                             
                             break;
                         case 2:
-                            System.out.println("Ingrese la pantente del bus que desea eliminar");
+                            //System.out.println("Ingrese la pantente del bus que desea eliminar");
                             String patenteEliminar= lector.readLine();
                             terminal.eliminarBus(patenteEliminar);
                             break;
@@ -111,7 +111,7 @@ public class SIA {
                             break;
                     }
                     //Scanner para limpiear la consola
-                    System.out.println("...Presione enter para limpiar la consola....");
+                    //System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();
                     limpiarConsola();
                     break;
@@ -124,11 +124,11 @@ public class SIA {
                         case 1:
                             //Agregar pasajero
                             Pasajero pasajero;
-                            System.out.println("Ingrese el nombre del pasajero");
+                            //System.out.println("Ingrese el nombre del pasajero");
                             String nombre= lector.readLine();
-                            System.out.println("Ingrese la edad del pasajero");
+                            //System.out.println("Ingrese la edad del pasajero");
                             int edad = Integer.parseInt(lector.readLine());
-                            System.out.println("Ingrese el correo del pasajero(Si no desea ingresar correo coloque 'x')");
+                            //System.out.println("Ingrese el correo del pasajero(Si no desea ingresar correo coloque 'x')");
                             String correo= lector.readLine();
                             if (correo.equals('x')){
                                pasajero = new Pasajero(nombre,edad);
@@ -138,35 +138,35 @@ public class SIA {
                             }
                             //Preguntar destino y numero de asiento
                             
-                            System.out.println("Ingrese la patente del bus(Destino)");
+                            //System.out.println("Ingrese la patente del bus(Destino)");
                             String destino= lector.readLine();
                             Bus busPasajero = terminal.buscarBusPatente(destino);
-                            System.out.println("Bus seleccionado:");
-                            System.out.println("Patente: " + busPasajero.getPatente());
-                            System.out.println("Salida: "+ busPasajero.getDireccionSalida());
-                            System.out.println("Ida: "+ busPasajero.getDireccionIda());
-                            System.out.println("Horario: "+ busPasajero.getHorario());
-                            System.out.println("Capacidad disponible: "+ busPasajero.getCapacidadDisponible());
-                            System.out.println("Ingrese el asiento que desea");
+                            //System.out.println("Bus seleccionado:");
+                            //System.out.println("Patente: " + busPasajero.getPatente());
+                            //System.out.println("Salida: "+ busPasajero.getDireccionSalida());
+                            //System.out.println("Ida: "+ busPasajero.getDireccionIda());
+                            //System.out.println("Horario: "+ busPasajero.getHorario());
+                            //System.out.println("Capacidad disponible: "+ busPasajero.getCapacidadDisponible());
+                            //System.out.println("Ingrese el asiento que desea");
                             int asiento= Integer.parseInt(lector.readLine());
                             busPasajero.ocuparAsiento(asiento, pasajero);
                             break;
                         case 2:
                             //Eliminar pasajero
-                            System.out.println("Ingrese la patente del bus");
+                            //System.out.println("Ingrese la patente del bus");
                             String destinoEliminar = lector.readLine();
                             Bus busPasajeroEliminar = terminal.buscarBusPatente(destinoEliminar);
 
                             if (busPasajeroEliminar != null) {
-                                System.out.println("Bus seleccionado:");
-                                System.out.println("Patente: " + busPasajeroEliminar.getPatente());
-                                System.out.println("Salida: " + busPasajeroEliminar.getDireccionSalida());
-                                System.out.println("Ida: " + busPasajeroEliminar.getDireccionIda());
-                                System.out.println("Horario: " + busPasajeroEliminar.getHorario());
+                                //System.out.println("Bus seleccionado:");
+                                //System.out.println("Patente: " + busPasajeroEliminar.getPatente());
+                                //System.out.println("Salida: " + busPasajeroEliminar.getDireccionSalida());
+                                //System.out.println("Ida: " + busPasajeroEliminar.getDireccionIda());
+                                //System.out.println("Horario: " + busPasajeroEliminar.getHorario());
 
                                 busPasajeroEliminar.mostrarAsientos();
 
-                                System.out.println("Ingrese el asiento que desea liberar");
+                                //System.out.println("Ingrese el asiento que desea liberar");
                                 try {
                                     int asientoEliminar;
                                     try {
@@ -177,26 +177,26 @@ public class SIA {
                                     }
                                     busPasajeroEliminar.eliminarPasajero(asientoEliminar);
                                 } catch (FormatoNumeroInvalidoException e) {
-                                    System.out.println(e.getMessage());
+                                    //System.out.println(e.getMessage());
                                 } catch (AsientoInvalidoException e) {
-                                    System.out.println("Error: " + e.getMessage());
+                                    //System.out.println("Error: " + e.getMessage());
                                 } catch (Exception e) {
-                                    System.out.println("Error inesperado: " + e.getMessage());
+                                    //System.out.println("Error inesperado: " + e.getMessage());
                                 }
                             } else {
-                                System.out.println("No se encontró ningún bus con la patente: " + destinoEliminar);
+                                //System.out.println("No se encontró ningún bus con la patente: " + destinoEliminar);
                             }
                             break;
                         case 3:
                             //Salir
                             break;
                     }
-                    System.out.println("...Presione enter para limpiar la consola....");
+                    //System.out.println("...Presione enter para limpiar la consola....");
                     scanner.nextLine();
                     limpiarConsola();
                     break;
                 default:
-                    System.out.println("Su opcion no existe");
+                    //System.out.println("Su opcion no existe");
                     limpiarConsola();
                     break;
 

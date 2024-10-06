@@ -6,6 +6,7 @@ package com.mycompany.sia;
 
 import java.awt.event.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import java.util.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -251,8 +252,13 @@ public class ControladorTerminal implements ActionListener{
                 eliminarPasajero.getjButtonEliminar().setVisible(true);
             }
             if (ae.getSource() == eliminarPasajero.getjButtonEliminar()){
-               //bb.eliminarPasajero(Integer.parseInt(eliminarPasajero.getjTextFieldNumAsiento().getText()));
-               eliminarPasajero.getjLabelEliminado().setVisible(true);
+                try{
+                    bb.eliminarPasajero(Integer.parseInt(eliminarPasajero.getjTextFieldNumAsiento().getText()));
+                    eliminarPasajero.getjLabelEliminado().setVisible(true);
+                }
+                catch (AsientoInvalidoException e){
+                    JOptionPane.showMessageDialog(null, "Número de asiento inválido: " + e.getMessage());
+                }
            }
        }
     }
