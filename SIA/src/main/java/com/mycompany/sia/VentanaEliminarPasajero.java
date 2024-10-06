@@ -7,6 +7,9 @@ package com.mycompany.sia;
 import java.awt.Dialog;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JTextField;
 /**
  *
  * @author Benjamín
@@ -36,11 +39,13 @@ public class VentanaEliminarPasajero extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldPatente = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelLiberar = new javax.swing.JLabel();
         jTextFieldNumAsiento = new javax.swing.JTextField();
         jButtonEliminar = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListAsientos = new javax.swing.JList<>();
+        jLabelEliminado = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -84,18 +89,31 @@ public class VentanaEliminarPasajero extends javax.swing.JFrame {
 
         jButtonBuscar.setText("Buscar");
 
-        jLabel3.setText("Mostrar asientos ocupados");
-
-        jLabel4.setText("Número del asiento a liberar:");
+        jLabelLiberar.setText("Número del asiento a liberar:");
 
         jButtonEliminar.setText("Eliminar");
 
         jButtonVolver.setText("Volver");
 
+        jListAsientos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jListAsientos);
+
+        jLabelEliminado.setText("Pasajero eliminado exitosamente");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jButtonBuscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonVolver)
+                .addGap(85, 85, 85))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -103,30 +121,23 @@ public class VentanaEliminarPasajero extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel4)
+                        .addComponent(jLabelLiberar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldNumAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jLabel2))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(176, 176, 176)
-                                        .addComponent(jButtonBuscar)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonEliminar)
-                                .addGap(123, 123, 123)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonVolver)
-                            .addComponent(jTextFieldPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabelEliminado))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(jButtonEliminar)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,18 +150,20 @@ public class VentanaEliminarPasajero extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonBuscar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonBuscar)
+                    .addComponent(jButtonVolver))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabelLiberar)
                     .addComponent(jTextFieldNumAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonEliminar)
-                    .addComponent(jButtonVolver))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(jButtonEliminar)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelEliminado)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -199,6 +212,21 @@ public class VentanaEliminarPasajero extends javax.swing.JFrame {
     public JButton getjButtonVolver(){
         return jButtonVolver;
     }
+    public JTextField getjTextFieldPatente(){
+        return jTextFieldPatente;
+    }
+    public JTextField getjTextFieldNumAsiento(){
+        return jTextFieldNumAsiento;
+    }
+    public JList<String> getjListAsientos(){
+        return jListAsientos;
+    }
+    public JLabel getjLabelEliminado(){
+        return jLabelEliminado;
+    }
+    public JLabel getjLabelLiberar(){
+        return jLabelLiberar;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminar;
@@ -208,8 +236,10 @@ public class VentanaEliminarPasajero extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelEliminado;
+    private javax.swing.JLabel jLabelLiberar;
+    private javax.swing.JList<String> jListAsientos;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldNumAsiento;
     private javax.swing.JTextField jTextFieldPatente;
     // End of variables declaration//GEN-END:variables

@@ -8,6 +8,7 @@ import java.awt.Dialog;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 /**
  *
@@ -40,12 +41,15 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
         jTextFieldEdad = new javax.swing.JTextField();
         jTextFieldCorreo = new javax.swing.JTextField();
         jTextFieldPatente = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jLabelSeleccionado = new javax.swing.JLabel();
         jButtonContinuar = new javax.swing.JButton();
         jLabelAsientoDeseado = new javax.swing.JLabel();
         jTextFieldNumAsiento = new javax.swing.JTextField();
         jButtonAgregar = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableDatos = new javax.swing.JTable();
+        jLabelAgregado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +67,7 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
         jTextFieldCorreo.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jTextFieldCorreo.setText("Ingrese \"x\" si no desea escribir su correo");
 
-        jLabel6.setText("Mostrar datos del bus después de continuar");
+        jLabelSeleccionado.setText("Bus sellecionado:");
 
         jButtonContinuar.setText("Continuar");
 
@@ -73,18 +77,30 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
 
         jButtonVolver.setText("Volver");
 
+        jTableDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patente", "Capacidad", "Horario", "Punto Partida", "Punto Llegada"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableDatos);
+
+        jLabelAgregado.setText("Pasajero agregado exitosamente");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
+                .addContainerGap(102, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(82, 82, 82))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
@@ -109,15 +125,21 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(0, 0, Short.MAX_VALUE)
                                             .addComponent(jButtonVolver)))))
-                            .addComponent(jLabel6)
+                            .addComponent(jLabelSeleccionado)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelAsientoDeseado)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldNumAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jButtonAgregar)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                                .addComponent(jTextFieldNumAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(167, 167, 167)
+                                .addComponent(jButtonAgregar)))
+                        .addGap(0, 72, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(jLabelAgregado)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,14 +167,18 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
                     .addComponent(jButtonContinuar)
                     .addComponent(jButtonVolver))
                 .addGap(7, 7, 7)
-                .addComponent(jLabel6)
-                .addGap(27, 27, 27)
+                .addComponent(jLabelSeleccionado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAsientoDeseado)
                     .addComponent(jTextFieldNumAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonAgregar)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelAgregado)
+                .addGap(26, 26, 26))
         );
 
         pack();
@@ -207,6 +233,27 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
     public JTextField getjTextFieldNumAsiento(){
         return jTextFieldNumAsiento;
     }
+    public JTextField getjTextFieldCorreo(){
+        return jTextFieldCorreo;
+    }
+    public JTextField getjTextFieldEdad(){
+        return jTextFieldEdad;
+    }
+    public JTextField getjTextFieldNombre(){
+        return jTextFieldNombre;
+    }
+    public JTextField getjTextFieldPatente(){
+        return jTextFieldPatente;
+    }
+    public JLabel getjLabelSeleccionado(){
+        return jLabelSeleccionado;
+    }
+    public JTable getjTableDatos(){
+        return jTableDatos;
+    }
+    public JLabel getjLabelAgregado(){
+        return jLabelAgregado;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonContinuar;
@@ -216,8 +263,11 @@ public class VentanaAgregarPasajero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelAgregado;
     private javax.swing.JLabel jLabelAsientoDeseado;
+    private javax.swing.JLabel jLabelSeleccionado;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableDatos;
     private javax.swing.JTextField jTextFieldCorreo;
     private javax.swing.JTextField jTextFieldEdad;
     private javax.swing.JTextField jTextFieldNombre;

@@ -7,6 +7,8 @@ package com.mycompany.sia;
 import java.awt.Dialog;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 /**
  *
  * @author Benjamín
@@ -34,6 +36,7 @@ public class VentanaEliminarBus extends javax.swing.JFrame {
         jTextFieldPatente = new javax.swing.JTextField();
         jButtonEliminar = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
+        jLabelEliminado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +53,8 @@ public class VentanaEliminarBus extends javax.swing.JFrame {
         });
 
         jButtonVolver.setText("Volver");
+
+        jLabelEliminado.setText("Bus eliminado exitosamente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,8 +76,13 @@ public class VentanaEliminarBus extends javax.swing.JFrame {
                             .addComponent(jTextFieldPatente))
                         .addGap(33, 33, 33))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jButtonEliminar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButtonEliminar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabelEliminado)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,7 +98,9 @@ public class VentanaEliminarBus extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEliminar)
                     .addComponent(jButtonVolver))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jLabelEliminado)
+                .addContainerGap())
         );
 
         pack();
@@ -138,11 +150,18 @@ public class VentanaEliminarBus extends javax.swing.JFrame {
     public JButton getjButtonVolver(){
         return jButtonVolver;
     }
+    public JTextField getjTextFieldPatente(){
+        return jTextFieldPatente;
+    }
+    public JLabel getjLabelEliminado(){
+        return jLabelEliminado;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelEliminado;
     private javax.swing.JTextField jTextFieldPatente;
     // End of variables declaration//GEN-END:variables
 }
