@@ -219,6 +219,7 @@ public class ControladorTerminal implements ActionListener{
                                 agregarBus.getjTextFieldHorario().getText(), agregarBus.getjTextFieldPuntoLlegada().getText(), 
                                 agregarBus.getjTextFieldPuntoPartida().getText());
             terminal.agregarBuses(nuevo);
+            terminal.agregarBusAlCSV(nuevo, "BusesCSV.csv");
             registro.registrarModificacion("Bus añadido: " + nuevo.getPatente());
             agregarBus.getjLabelAgregado().setVisible(true);
         }

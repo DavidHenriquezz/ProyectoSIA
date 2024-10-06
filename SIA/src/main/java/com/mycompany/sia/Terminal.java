@@ -38,6 +38,9 @@ public class Terminal {
                 buses.remove(i);
                 eliminado = true;
                 System.out.println("Bus con patente " + patente + " Ha sido eliminado con exito");
+                
+                
+                guardarBusesEnCSV("BusesCSV.csv");
                 break;
             }
         }
@@ -212,39 +215,62 @@ public class Terminal {
     }
     
     public void cargarBusesDesdeCSV(String BusesCSV) throws IOException {
-    String linea;
-    try (BufferedReader br = new BufferedReader(new FileReader(BusesCSV))) {
-        // Leer la primera línea (encabezado) y descartarla
-        System.out.println("...Cargando archivo de buses...");
-        br.readLine();
-        
-        // Leer línea por línea
-        while ((linea = br.readLine()) != null) {
-            // Separar la línea en campos
-            String[] campos = linea.split(",");
-            
-            // Verificar que se hayan leído suficientes campos
-            if (campos.length < 5) {
-                System.out.println("Línea incompleta en el archivo CSV: " + linea);
-                continue;
+        String linea;
+        try (BufferedReader br = new BufferedReader(new FileReader(BusesCSV))) {
+            // Leer la primera línea (encabezado) y descartarla
+            System.out.println("...Cargando archivo de buses...");
+            br.readLine();
+
+            // Leer línea por línea
+            while ((linea = br.readLine()) != null) {
+                // Separar la línea en campos
+                String[] campos = linea.split(",");
+
+                // Verificar que se hayan leído suficientes campos
+                if (campos.length < 5) {
+                    System.out.println("Línea incompleta en el archivo CSV: " + linea);
+                    continue;
+                }
+
+                // Crear un nuevo objeto Bus y agregarlo a la lista
+                String patente = campos[0].trim();
+                int capacidadDisponible = Integer.parseInt(campos[1].trim());
+                String horario = campos[2].trim();
+                String direccionIda = campos[3].trim();
+                String direccionVuelta = campos[4].trim();
+
+                Bus bus = new Bus(patente, capacidadDisponible, horario, direccionIda, direccionVuelta);
+                agregarBuses(bus);
             }
-            
-            // Crear un nuevo objeto Bus y agregarlo a la lista
-            String patente = campos[0].trim();
-            int capacidadDisponible = Integer.parseInt(campos[1].trim());
-            String horario = campos[2].trim();
-            String direccionIda = campos[3].trim();
-            String direccionVuelta = campos[4].trim();
-            
-            Bus bus = new Bus(patente, capacidadDisponible, horario, direccionIda, direccionVuelta);
-            agregarBuses(bus);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo CSV: " + e.getMessage());
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("Error al convertir la capacidad disponible: " + e.getMessage());
+            e.printStackTrace();
         }
-    } catch (IOException e) {
-        System.out.println("Error al leer el archivo CSV: " + e.getMessage());
-        e.printStackTrace();
-    } catch (NumberFormatException e) {
-        System.out.println("Error al convertir la capacidad disponible: " + e.getMessage());
-        e.printStackTrace();
     }
-}
+    public void guardarBusesEnCSV(String archivo) {
+        try (PrintWriter writer = new PrintWriter(new File(archivo))) {
+            StringBuilder sb = new StringBuilder();
+
+            // Escribir la cabecera del archivo CSV
+            sb.append("Patente,Capacidad,Horario,PuntoLlegada,PuntoPartida\n");
+
+            // Recorrer la lista de buses y escribir cada uno en el archivo CSV
+            for (Bus bus : buses) {
+                sb.append(bus.getPatente()).append(",");
+                sb.append(bus.getCapacidadDisponible()).append(",");
+                sb.append(bus.getHorario()).append(",");
+                sb.append(bus.getDireccionSalida()).append(",");
+                sb.append(bus.getDireccionIda()).append("\n");
+            }
+
+            // Escribir todo en el archivo
+            writer.write(sb.toString());
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Error al guardar buses en el archivo CSV: " + e.getMessage());
+        }
+    }
 }
