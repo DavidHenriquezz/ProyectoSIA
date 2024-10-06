@@ -87,7 +87,7 @@ public class Terminal {
         }
     }
 
-    public void buscarBus(String patente, DefaultTableModel mm){
+    public void buscarBus(String patente, DefaultTableModel mm) throws BusNoEncontradoException{
         if (buses.isEmpty()){
             System.out.println("No hay buses disponibles");
             System.out.println("\n");
@@ -211,7 +211,7 @@ public class Terminal {
         }
     }
     
-    public void cargarBusesDesdeCSV(String BusesCSV) {
+    public void cargarBusesDesdeCSV(String BusesCSV) throws IOException {
     String linea;
     try (BufferedReader br = new BufferedReader(new FileReader(BusesCSV))) {
         // Leer la primera línea (encabezado) y descartarla

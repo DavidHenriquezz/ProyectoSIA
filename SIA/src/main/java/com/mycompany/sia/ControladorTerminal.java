@@ -35,9 +35,14 @@ public class ControladorTerminal implements ActionListener{
     private VentanaEliminarPasajero eliminarPasajero;
     
     public void iniciar(){
-        buses = new ArrayList<>();
-        terminal = new Terminal(buses);
-        terminal.cargarBusesDesdeCSV("BusesCSV.csv");
+        try{
+            buses = new ArrayList<>();
+            terminal = new Terminal(buses);
+            terminal.cargarBusesDesdeCSV("BusesCSV.csv");
+        }
+        catch (IOException e){
+             JOptionPane.showMessageDialog(null, "Error al cargar el archivo CSV: " + e.getMessage());
+        }
         menu = new Menu();
         main = new VentanaMain();
         main.getjButtonBuscar1().addActionListener(this);
@@ -122,7 +127,12 @@ public class ControladorTerminal implements ActionListener{
         if (buscar1 != null && ae.getSource() == buscar1.getjButtonBuscar()){ //Buscar por patente
             String patente = buscar1.getjTextFieldPatente().getText();
             DefaultTableModel model = (DefaultTableModel) buscar1.getjTableDatos().getModel();
-            terminal.buscarBus(patente, model);
+            try{
+                terminal.buscarBus(patente, model);
+            }
+            catch(BusNoEncontradoException e){
+                JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
+            }
         }
         if (buscar2 != null && ae.getSource() == buscar2.getjButtonBuscar()){ //Buscar por su destino
             String salida = buscar2.getjTextFieldDestino().getText();
@@ -213,33 +223,41 @@ public class ControladorTerminal implements ActionListener{
             terminal.eliminarBus(eliminarBus.getjTextFieldPatente().getText());
             eliminarBus.getjLabelEliminado().setVisible(true);
         }
-        if (agregarPasajero != null){
-            if (ae.getSource() == agregarPasajero.getjButtonContinuar()){
+        if (agregarPasajero != null) {
+            if (ae.getSource() == agregarPasajero.getjButtonContinuar()) {
                 // Crear pasajero y buscar bus
-                if (agregarPasajero.getjTextFieldCorreo().getText().equals("x") || 
-                    agregarPasajero.getjTextFieldCorreo().getText().isBlank()){
-                    pp = new Pasajero(agregarPasajero.getjTextFieldNombre().getText(),
-                                    Integer.parseInt(agregarPasajero.getjTextFieldEdad().getText()));
-                } 
-                else{
-                    pp = new Pasajero(agregarPasajero.getjTextFieldNombre().getText(),
-                                    Integer.parseInt(agregarPasajero.getjTextFieldEdad().getText()),
-                                    agregarPasajero.getjTextFieldCorreo().getText());
+                String nombre = agregarPasajero.getjTextFieldNombre().getText();
+                int edad = Integer.parseInt(agregarPasajero.getjTextFieldEdad().getText());
+                String correo = agregarPasajero.getjTextFieldCorreo().getText();
+
+                // Crear el pasajero, asumiendo que "x" o vacío significa sin correo
+                if (correo.equals("x") || correo.isBlank()) {
+                    pp = new Pasajero(nombre, edad);
+                } else {
+                    pp = new Pasajero(nombre, edad, correo);
                 }
 
-            bb = terminal.buscarBusPatente(agregarPasajero.getjTextFieldPatente().getText());
-            DefaultTableModel model = (DefaultTableModel) agregarPasajero.getjTableDatos().getModel();
-            terminal.buscarBus(agregarPasajero.getjTextFieldPatente().getText(), model);
-        
-            agregarPasajero.getjLabelAsientoDeseado().setVisible(true);
-            agregarPasajero.getjTextFieldNumAsiento().setVisible(true);
-            agregarPasajero.getjButtonAgregar().setVisible(true);
-            }
+                // Buscar el bus por patente
+                try {
+                    String patente = agregarPasajero.getjTextFieldPatente().getText();
+                    bb = terminal.buscarBusPatente(patente); // Asumiendo que este método lanza una excepción si no se encuentra
 
-            // Manejo del botón "Agregar"
-            if (ae.getSource() == agregarPasajero.getjButtonAgregar()){
-                bb.ocuparAsiento(Integer.parseInt(agregarPasajero.getjTextFieldNumAsiento().getText()), pp);
-                agregarPasajero.getjLabelAgregado().setVisible(true);
+                    // Si llegamos aquí, significa que el bus se encontró
+                    DefaultTableModel model = (DefaultTableModel) agregarPasajero.getjTableDatos().getModel();
+                    terminal.buscarBus(patente, model); // Llenar el modelo con la información del bus
+
+                    // Mostrar la opción de seleccionar un asiento
+                    agregarPasajero.getjLabelAsientoDeseado().setVisible(true);
+                    agregarPasajero.getjTextFieldNumAsiento().setVisible(true);
+                    agregarPasajero.getjButtonAgregar().setVisible(true);
+
+                } catch (BusNoEncontradoException e) {
+                    // Manejo de excepción si el bus no se encuentra
+                    JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
+                } catch (NumberFormatException e) {
+                    // Manejo de excepción si hay un error en la conversión de edad
+                    JOptionPane.showMessageDialog(null, "Por favor, ingresa una edad válida: " + e.getMessage());
+                }
             }
         }
         if (eliminarPasajero != null){
