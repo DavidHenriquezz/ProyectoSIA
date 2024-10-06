@@ -245,14 +245,14 @@ public class ControladorTerminal implements ActionListener{
             if (ae.getSource() == eliminarPasajero.getjButtonBuscar()){
                 bb = terminal.buscarBusPatente(eliminarPasajero.getjTextFieldPatente().getText());
                 bb.mostrarAsientos();
-                eliminarPasajero.getjLabelLiberar().setVisible(false);
-                eliminarPasajero.getjLabelEliminado().setVisible(false);
-                eliminarPasajero.getjListAsientos().setVisible(false);
-                eliminarPasajero.getjTextFieldNumAsiento().setVisible(false);
-                eliminarPasajero.getjButtonEliminar().setVisible(false);
+                eliminarPasajero.getjLabelLiberar().setVisible(true);
+                eliminarPasajero.getjListAsientos().setVisible(true);
+                eliminarPasajero.getjTextFieldNumAsiento().setVisible(true);
+                eliminarPasajero.getjButtonEliminar().setVisible(true);
             }
             if (ae.getSource() == eliminarPasajero.getjButtonEliminar()){
-               
+               //bb.eliminarPasajero(Integer.parseInt(eliminarPasajero.getjTextFieldNumAsiento().getText()));
+               eliminarPasajero.getjLabelEliminado().setVisible(true);
            }
        }
     }
