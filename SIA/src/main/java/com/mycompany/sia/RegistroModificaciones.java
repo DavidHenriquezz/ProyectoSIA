@@ -33,6 +33,7 @@ public class RegistroModificaciones {
             // Escribir la acción con el timestamp en el archivo
             writer.write(timestamp + " - " + accion);
             writer.newLine();
+            
         } catch (IOException e) {
             e.printStackTrace();
         }

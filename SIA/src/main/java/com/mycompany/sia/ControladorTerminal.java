@@ -263,6 +263,10 @@ public class ControladorTerminal implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Por favor, ingresa una edad válida: " + e.getMessage());
                 }
             }
+            if (ae.getSource() == agregarPasajero.getjButtonAgregar()){
+                bb.ocuparAsiento(Integer.parseInt(agregarPasajero.getjTextFieldNumAsiento().getText()), pp);
+                agregarPasajero.getjLabelAgregado().setVisible(true);
+            }
         }
         if (eliminarPasajero != null){
             if (ae.getSource() == eliminarPasajero.getjButtonBuscar()){
