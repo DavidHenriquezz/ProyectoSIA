@@ -9,7 +9,7 @@ package com.mycompany.sia;
  * @author Benjamín
  */
 public interface IModeloDatos<T>{
-    void añadirElemento(T elemento);
-    void añadirElemento(T[] elemento);
-    void limpiarElementos();
+    public void añadirElemento(T elemento);
+    public void añadirElemento(T[] elemento);
+    public void limpiarElementos();
 }

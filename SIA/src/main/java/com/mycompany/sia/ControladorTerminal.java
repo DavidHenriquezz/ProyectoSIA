@@ -55,6 +55,12 @@ public class ControladorTerminal implements ActionListener{
         main.getjButtonPasajero().addActionListener(this);
         
         main.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        main.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                terminal.guardarBusesEnCSV("BusesCSV.csv");
+            }
+        });
         main.setVisible(true);
     }
     
@@ -145,14 +151,25 @@ public class ControladorTerminal implements ActionListener{
             DefaultTableModel model = (DefaultTableModel) buscar2.getjTableDatos1().getModel();
             ModeloTabla mt = new ModeloTabla(model);
             if (hora.isBlank()){ //Si no se ingresa hora
+                try{
                 terminal.buscarBusLugar(salida, mt);
+                }
+                catch(BusNoEncontradoException e){
+                    JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
+                }
             }
             else{ //Si se ingresa hora
                 System.out.println("HOLA");
-                terminal.buscarBus(salida, hora, mt);
+                try{
+                    terminal.buscarBus(salida, hora, mt);
+                }
+                catch(BusNoEncontradoException e){
+                    JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
+                }
             }
            //buscar2.getjTableDatos1().setVisible(true);
         }
+        
         //Acceder a las subventanas
         if (modificar != null && ae.getSource() == modificar.getjButtonAgregar()){//Agregar bus
             agregarBus = new VentanaAgregarBus();
@@ -216,13 +233,20 @@ public class ControladorTerminal implements ActionListener{
        
         //Funciones subventanas
         if (agregarBus != null && ae.getSource() == agregarBus.getjButtonAgregar()){ //Agregar Bus
-            Bus nuevo = new Bus(agregarBus.getjTextFieldPatente().getText(), Integer.parseInt(agregarBus.getjTextFieldCapacidad().getText()), 
+            try{
+                Bus nuevo = new Bus(agregarBus.getjTextFieldPatente().getText(), Integer.parseInt(agregarBus.getjTextFieldCapacidad().getText()), 
                                 agregarBus.getjTextFieldHorario().getText(), agregarBus.getjTextFieldPuntoLlegada().getText(), 
                                 agregarBus.getjTextFieldPuntoPartida().getText());
-            terminal.agregarBuses(nuevo);
-            terminal.agregarBusAlCSV(nuevo, "BusesCSV.csv");
-            registro.registrarModificacion("Bus añadido: " + nuevo.getPatente());
-            agregarBus.getjLabelAgregado().setVisible(true);
+                terminal.agregarBuses(nuevo);
+                terminal.agregarBusAlCSV(nuevo, "BusesCSV.csv");
+                registro.registrarModificacion("Bus añadido: " + nuevo.getPatente());
+                agregarBus.getjLabelAgregado().setVisible(true);
+            }
+            catch (NumberFormatException e) {
+                // Manejo de excepción si hay un error en la conversión de edad
+                JOptionPane.showMessageDialog(null, "Por favor, ingresa una edad válida: " + e.getMessage());
+                return;
+            }
         }
         if (eliminarBus != null && ae.getSource() == eliminarBus.getjButtonEliminar()){ //Eliminar Bus
             try{
@@ -279,9 +303,16 @@ public class ControladorTerminal implements ActionListener{
                 
             }
             if (ae.getSource() == agregarPasajero.getjButtonAgregar()){
+                try{
                 bb.ocuparAsiento(Integer.parseInt(agregarPasajero.getjTextFieldNumAsiento().getText()), pp);
                 agregarPasajero.getjLabelAgregado().setVisible(true);
                 registro.registrarModificacion("Pasajero añadido: " + agregarPasajero.getjTextFieldNombre().getText());
+                }
+                catch (NumberFormatException e) {
+                    // Manejo de excepción si hay un error en la conversión de edad
+                    JOptionPane.showMessageDialog(null, "Por favor, ingresa un asiento válido: " + e.getMessage());
+                    return;
+                }
             }
         }
         if (eliminarPasajero != null){

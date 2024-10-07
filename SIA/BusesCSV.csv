@@ -1,40 +1,40 @@
-patente,capacidadDisponible,horario,direccionIda,direccionVuelta
-AB123CD,0,08:00,Santiago,Valparaíso
-BC234DE,40,09:00,Antofagasta,Calama
-CD345EF,45,10:00,Temuco,Concepción
-DE456FG,35,11:00,La Serena,Coquimbo
-EF567GH,55,12:00,Santiago,Viña del Mar
-FG678HI,30,13:00,Puerto Montt,Osorno
-GH789IJ,60,14:00,Arica,Iquique
-HI890JK,40,15:00,Valdivia,Osorno
-IJ901KL,50,16:00,Calama,Antofagasta
-JK012LM,45,17:00,Concepción,Temuco
-KL123MN,55,18:00,Santiago,San Fernando
-LM234NO,35,19:00,Valparaíso,La Serena
-MN345OP,60,20:00,Viña del Mar,San Antonio
-NO456PQ,40,21:00,Osorno,Puerto Varas
-OP567QR,50,22:00,Antofagasta,Calama
-PQ678RS,30,23:00,Coquimbo,La Serena
-QR789ST,45,06:00,Iquique,Arica
-RS890TU,55,07:00,Temuco,Concepción
-ST901UV,35,08:00,San Fernando,Rancagua
-TU012VW,60,09:00,Viña del Mar,Valparaíso
-UV123WX,50,10:00,Antofagasta,Iquique
-WX234YZ,45,11:00,Puerto Montt,Chiloé
-XY345ZA,35,12:00,La Serena,Coquimbo
-YZ456AB,60,13:00,Valdivia,Osorno
-ZA567BC,40,14:00,Concepción,Temuco
-AB678CD,55,15:00,Santiago,Viña del Mar
-BC789DE,30,16:00,Valparaíso,San Antonio
-CD890EF,50,17:00,Antofagasta,Calama
-DE901FG,45,18:00,Puerto Montt,Osorno
-EF012GH,60,19:00,Iquique,Arica
-FG123HI,35,20:00,Temuco,Concepción
-GH234IJ,55,21:00,San Fernando,Rancagua
-HI345JK,40,22:00,Viña del Mar,Valparaíso
-IJ456KL,60,23:00,Osorno,Puerto Varas
-JK567LM,50,06:00,Antofagasta,Calama
-LM678NO,35,07:00,Concepción,Temuco
-NO789OP,55,08:00,Viña del Mar,Valparaíso
-aaaaaaa,50,10:00,Santiago,Villa alemana
-AAAAA,50,10:00,Santiago,Villa Alemana
+Patente,Capacidad,Horario,PuntoLlegada,PuntoPartida
+AB123CD,0,08:00,Valparaíso,Santiago
+BC234DE,39,09:00,Calama,Antofagasta
+CD345EF,45,10:00,Concepción,Temuco
+DE456FG,35,11:00,Coquimbo,La Serena
+EF567GH,55,12:00,Viña del Mar,Santiago
+FG678HI,30,13:00,Osorno,Puerto Montt
+GH789IJ,60,14:00,Iquique,Arica
+HI890JK,40,15:00,Osorno,Valdivia
+IJ901KL,50,16:00,Antofagasta,Calama
+JK012LM,45,17:00,Temuco,Concepción
+KL123MN,55,18:00,San Fernando,Santiago
+LM234NO,35,19:00,La Serena,Valparaíso
+MN345OP,60,20:00,San Antonio,Viña del Mar
+NO456PQ,40,21:00,Puerto Varas,Osorno
+OP567QR,50,22:00,Calama,Antofagasta
+PQ678RS,30,23:00,La Serena,Coquimbo
+QR789ST,45,06:00,Arica,Iquique
+RS890TU,55,07:00,Concepción,Temuco
+ST901UV,35,08:00,Rancagua,San Fernando
+TU012VW,60,09:00,Valparaíso,Viña del Mar
+UV123WX,50,10:00,Iquique,Antofagasta
+WX234YZ,45,11:00,Chiloé,Puerto Montt
+XY345ZA,35,12:00,Coquimbo,La Serena
+YZ456AB,60,13:00,Osorno,Valdivia
+ZA567BC,40,14:00,Temuco,Concepción
+AB678CD,55,15:00,Viña del Mar,Santiago
+BC789DE,30,16:00,San Antonio,Valparaíso
+CD890EF,50,17:00,Calama,Antofagasta
+DE901FG,45,18:00,Osorno,Puerto Montt
+EF012GH,60,19:00,Arica,Iquique
+FG123HI,35,20:00,Concepción,Temuco
+GH234IJ,55,21:00,Rancagua,San Fernando
+HI345JK,40,22:00,Valparaíso,Viña del Mar
+IJ456KL,60,23:00,Puerto Varas,Osorno
+JK567LM,50,06:00,Calama,Antofagasta
+LM678NO,35,07:00,Temuco,Concepción
+NO789OP,55,08:00,Valparaíso,Viña del Mar
+aaaaaaa,50,10:00,Villa alemana,Santiago
+AAAAA,50,10:00,Villa Alemana,Santiago

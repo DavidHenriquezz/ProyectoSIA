@@ -127,7 +127,8 @@ public class Terminal {
         }
         throw new BusNoEncontradoException("El bus con patente " + patente + " no fue encontrado.");
     }
-    public void buscarBusLugar(String destino, ModeloTabla mt){
+    public void buscarBusLugar(String destino, ModeloTabla mt) throws BusNoEncontradoException{
+        int cant = 0;
         System.out.println(destino);
         if(buses.isEmpty()){
             System.out.println("No hay buses hacia este destino");
@@ -153,11 +154,15 @@ public class Terminal {
                     bus.getDireccionIda()
                     };
                     mt.añadirElemento(aux);
+                    cant++;
                 }
             }
         }
+        if (cant == 0){
+            throw new BusNoEncontradoException("No se encontró ningún bus con destino a "+ destino + ".");
+        }
     }
-    public void buscarBus(String destino, String horario, ModeloTabla mt){
+    public void buscarBus(String destino, String horario, ModeloTabla mt) throws BusNoEncontradoException{
         int pivote = 1;
         if(buses.isEmpty()){
             System.out.println("No hay buses en este horario");
@@ -189,7 +194,7 @@ public class Terminal {
         }
         if (pivote == 1){
             System.out.println("No hay buses disponibles");
-            
+            throw new BusNoEncontradoException("No se encontró ningún bus con los criterios ingresados.");
         }
     }
     
@@ -254,7 +259,7 @@ public class Terminal {
         } catch (IOException e) {
             System.out.println("Error al leer el archivo CSV: " + e.getMessage());
             e.printStackTrace();
-        } catch (NumberFormatException e) {
+        } catch (FormatoNumeroInvalidoException e) {
             System.out.println("Error al convertir la capacidad disponible: " + e.getMessage());
             e.printStackTrace();
         }

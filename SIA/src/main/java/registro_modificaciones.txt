@@ -21,3 +21,7 @@
 2024-10-06 21:07:25 - Pasajero eliminado en el bus con patente: BC234DE
 2024-10-06 21:09:04 - Pasajero añadido: Benja
 2024-10-06 21:11:48 - Pasajero eliminado en el bus con patente: BC234DE
+2024-10-06 21:47:27 - Bus añadido: hola
+2024-10-06 22:21:22 - Bus eliminado: hola
+2024-10-06 22:22:07 - Pasajero añadido: Benjamín
+2024-10-06 22:40:32 - Pasajero añadido: ads

@@ -8,7 +8,7 @@ package com.mycompany.sia;
  *
  * @author David
  */
-public class FormatoNumeroInvalidoException extends Exception {
+public class FormatoNumeroInvalidoException extends NumberFormatException {
     public FormatoNumeroInvalidoException(String mensaje) {
         super(mensaje);
     }
