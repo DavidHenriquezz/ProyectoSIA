@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.sia;
+package com.mycompany.sia.modelo;
 
+import com.mycompany.sia.modelo.Bus;
 import java.util.ArrayList;
 
 /**
@@ -49,13 +50,6 @@ public class Asiento {
     }
     public Pasajero getPasajero() {
         return pasajero;
-    }
-    public void mostrarAsiento(){
-        //System.out.println("Asiento: "+ numeroAsiento);
-        //System.out.println("Estado: "+ (ocupado ? "Ocupado" : "Libre"));
-        if(ocupado && pasajero != null){
-            pasajero.mostrarPasajero();
-        }
     }
     
     public void ocupar(Bus bus, Pasajero pasajero){

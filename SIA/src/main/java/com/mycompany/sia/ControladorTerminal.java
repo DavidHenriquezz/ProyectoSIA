@@ -4,6 +4,25 @@
  */
 package com.mycompany.sia;
 
+import vista.VentanaBuscar2;
+import vista.VentanaPasajero;
+import vista.VentanaAgregarBus;
+import vista.VentanaModificar;
+import vista.VentanaMain;
+import vista.VentanaEliminarBus;
+import vista.VentanaMostrar;
+import vista.VentanaEliminarPasajero;
+import vista.VentanaAgregarPasajero;
+import vista.VentanaBuscar1;
+import com.mycompany.sia.modelo.Terminal;
+import com.mycompany.sia.modelo.RegistroModificaciones;
+import com.mycompany.sia.modelo.Pasajero;
+import com.mycompany.sia.modelo.ModeloTabla;
+import com.mycompany.sia.modelo.ModeloLista;
+import com.mycompany.sia.modelo.Menu;
+import com.mycompany.sia.modelo.BusNoEncontradoException;
+import com.mycompany.sia.modelo.AsientoInvalidoException;
+import com.mycompany.sia.modelo.Bus;
 import java.awt.event.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -36,6 +55,7 @@ public class ControladorTerminal implements ActionListener{
     private VentanaEliminarPasajero eliminarPasajero;
     private RegistroModificaciones registro;
     
+    //Iniciar variables
     public void iniciar(){
         try{
             buses = new ArrayList<>();
@@ -53,8 +73,8 @@ public class ControladorTerminal implements ActionListener{
         main.getjButtonModificar().addActionListener(this);
         main.getjButtonMostrar().addActionListener(this);
         main.getjButtonPasajero().addActionListener(this);
-        
         main.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //Guardar buses cuando se cierre el programa
         main.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -64,6 +84,7 @@ public class ControladorTerminal implements ActionListener{
         main.setVisible(true);
     }
     
+    //Manejo de acciones
     @Override
     public void actionPerformed(ActionEvent ae){
         //Abrir cada ventana del main
@@ -111,23 +132,23 @@ public class ControladorTerminal implements ActionListener{
         }
        
         //Cerrar cada ventana del main
-        if (modificar != null && ae.getSource() == modificar.getjButtonVolver()){
+        if (modificar != null && ae.getSource() == modificar.getjButtonVolver()){ //Modificar buses
             modificar.dispose();
             return;
         }
-        if (mostrar != null && ae.getSource() == mostrar.getjButtonCerrar()){
+        if (mostrar != null && ae.getSource() == mostrar.getjButtonCerrar()){ //Mostrar buses
             mostrar.dispose();
             return;
         }
-        if (pasajero != null && ae.getSource() == pasajero.getjButtonVolver()){
+        if (pasajero != null && ae.getSource() == pasajero.getjButtonVolver()){//Gestionar pasajeros
             pasajero.dispose();
             return;
         }
-        if (buscar1 != null && ae.getSource() == buscar1.getjButtonVolver()){
+        if (buscar1 != null && ae.getSource() == buscar1.getjButtonVolver()){//Buscar por patente
             buscar1.dispose();
             return;
         }
-        if (buscar2 != null && ae.getSource() == buscar2.getjButtonVolver()){
+        if (buscar2 != null && ae.getSource() == buscar2.getjButtonVolver()){//Buscar por destino
             buscar2.dispose();
             return;
         }
@@ -141,7 +162,6 @@ public class ControladorTerminal implements ActionListener{
                 terminal.buscarBus(patente, mt);
             }
             catch(BusNoEncontradoException e){
-                System.out.println("asdasdasasdasdasdasdsdassadsdads");
                 JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
             }
         }
@@ -159,7 +179,7 @@ public class ControladorTerminal implements ActionListener{
                 }
             }
             else{ //Si se ingresa hora
-                System.out.println("HOLA");
+                //System.out.println("HOLA");
                 try{
                     terminal.buscarBus(salida, hora, mt);
                 }
@@ -167,7 +187,6 @@ public class ControladorTerminal implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
                 }
             }
-           //buscar2.getjTableDatos1().setVisible(true);
         }
         
         //Acceder a las subventanas
@@ -214,19 +233,19 @@ public class ControladorTerminal implements ActionListener{
         }
        
         //Cerrar subventanas
-        if (agregarBus != null && ae.getSource() == agregarBus.getjButtonVolver()){
+        if (agregarBus != null && ae.getSource() == agregarBus.getjButtonVolver()){ //Agregar bus
             agregarBus.dispose();
             return;
         }
-        if (eliminarBus != null && ae.getSource()== eliminarBus.getjButtonVolver()){
+        if (eliminarBus != null && ae.getSource()== eliminarBus.getjButtonVolver()){ //Eliminar bus
             eliminarBus.dispose();
             return;
         }
-        if (agregarPasajero != null && ae.getSource() == agregarPasajero.getjButtonVolver()){
+        if (agregarPasajero != null && ae.getSource() == agregarPasajero.getjButtonVolver()){ //Agregar pasajero
             agregarPasajero.dispose();
             return;
         }
-        if (eliminarPasajero != null && ae.getSource() == eliminarPasajero.getjButtonVolver()){
+        if (eliminarPasajero != null && ae.getSource() == eliminarPasajero.getjButtonVolver()){ //Eliminar pasajero
             eliminarPasajero.dispose();
             return;
         }
@@ -256,11 +275,11 @@ public class ControladorTerminal implements ActionListener{
             }
             catch (BusNoEncontradoException e) {
                 // Manejo de excepción si el bus no se encuentra
-                System.out.println("asdasdasdas");
+                //System.out.println("asdasdasdas");
                 JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
             } 
         }
-        if (agregarPasajero != null) {
+        if (agregarPasajero != null) { //Agregar pasajero
             if (ae.getSource() == agregarPasajero.getjButtonContinuar()) {
                 // Crear pasajero y buscar bus
                 try{
@@ -297,7 +316,7 @@ public class ControladorTerminal implements ActionListener{
                 } 
                 catch (BusNoEncontradoException e) {
                     // Manejo de excepción si el bus no se encuentra
-                    System.out.println("asdasdasdas");
+                    //System.out.println("asdasdasdas");
                     JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
                 } 
                 
@@ -315,7 +334,7 @@ public class ControladorTerminal implements ActionListener{
                 }
             }
         }
-        if (eliminarPasajero != null){
+        if (eliminarPasajero != null){ //Eliminar pasajero
             if (ae.getSource() == eliminarPasajero.getjButtonBuscar()){
                 try{
                 bb = terminal.buscarBusPatente(eliminarPasajero.getjTextFieldPatente().getText());

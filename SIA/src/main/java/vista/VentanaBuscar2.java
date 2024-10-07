@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.sia;
+package vista;
 
+import com.mycompany.sia.modelo.ModeloLista;
+import com.mycompany.sia.modelo.Menu;
 import java.awt.Dialog;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;

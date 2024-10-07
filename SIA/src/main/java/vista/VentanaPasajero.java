@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.sia;
+package vista;
 
 import java.awt.Dialog;
 import javax.swing.JFrame;
@@ -11,12 +11,12 @@ import javax.swing.JButton;
  *
  * @author Benjamín
  */
-public class VentanaModificar extends javax.swing.JFrame {
+public class VentanaPasajero extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaModificar
+     * Creates new form VentanaPasajero
      */
-    public VentanaModificar() {
+    public VentanaPasajero() {
         initComponents();
     }
 
@@ -29,23 +29,32 @@ public class VentanaModificar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jButtonAgregar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Escoja una opción:");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("Modificar bus");
+        jLabel1.setText("Gestionar pasajeros");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Escoja una opción:");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Escoja una opción:");
 
         jButtonAgregar.setText("Agregar");
 
         jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         jButtonVolver.setText("Volver");
 
@@ -54,42 +63,49 @@ public class VentanaModificar extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(148, 148, 148))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtonAgregar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonEliminar)
+                        .addGap(29, 29, 29))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jButtonAgregar)
-                .addGap(105, 105, 105)
-                .addComponent(jButtonEliminar)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jButtonVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jButtonVolver)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAgregar)
                     .addComponent(jButtonEliminar))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonVolver)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,20 +124,20 @@ public class VentanaModificar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaPasajero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaPasajero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaPasajero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaPasajero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaModificar().setVisible(true);
+                new VentanaPasajero().setVisible(true);
             }
         });
     }
@@ -140,5 +156,6 @@ public class VentanaModificar extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

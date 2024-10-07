@@ -2,23 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.sia;
+package vista;
 
 import java.awt.Dialog;
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.JTable;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 /**
  *
  * @author Benjamín
  */
-public class VentanaBuscar1 extends javax.swing.JFrame {
+public class VentanaEliminarBus extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaBuscar1
+     * Creates new form VentanaEliminarBus
      */
-    public VentanaBuscar1() {
+    public VentanaEliminarBus() {
         initComponents();
     }
 
@@ -34,109 +34,81 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldPatente = new javax.swing.JTextField();
-        jButtonBuscar = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableDatos = new javax.swing.JTable();
+        jLabelEliminado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("Búsqueda por patente");
+        jLabel1.setText("Eliminar bus");
 
         jLabel2.setText("Patente:");
 
-        jTextFieldPatente.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPatenteActionPerformed(evt);
-            }
-        });
-
-        jButtonBuscar.setText("Buscar");
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
+                jButtonEliminarActionPerformed(evt);
             }
         });
 
         jButtonVolver.setText("Volver");
-        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVolverActionPerformed(evt);
-            }
-        });
 
-        jTableDatos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Patente", "Capacidad", "Horario", "Punto Partida", "Punto Llegada"
-            }
-        ));
-        jScrollPane1.setViewportView(jTableDatos);
+        jLabelEliminado.setText("Bus eliminado exitosamente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addContainerGap(50, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonBuscar, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(181, 181, 181))))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButtonVolver))
+                            .addComponent(jTextFieldPatente))
+                        .addGap(33, 33, 33))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonVolver)
-                            .addComponent(jLabel1))))
+                        .addGap(34, 34, 34)
+                        .addComponent(jButtonEliminar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabelEliminado)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(34, 34, 34)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonBuscar)
+                    .addComponent(jButtonEliminar)
                     .addComponent(jButtonVolver))
-                .addContainerGap(80, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(192, 192, 192)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jLabelEliminado)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldPatenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPatenteActionPerformed
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPatenteActionPerformed
-
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
-
-    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonVolverActionPerformed
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,26 +127,25 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaBuscar1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEliminarBus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaBuscar1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEliminarBus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaBuscar1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEliminarBus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaBuscar1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEliminarBus.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaBuscar1().setVisible(true);
+                new VentanaEliminarBus().setVisible(true);
             }
         });
     }
-    
-    public JButton getjButtonBuscar(){
-        return jButtonBuscar;
+    public JButton getjButtonEliminar(){
+        return jButtonEliminar;
     }
     public JButton getjButtonVolver(){
         return jButtonVolver;
@@ -182,16 +153,15 @@ public class VentanaBuscar1 extends javax.swing.JFrame {
     public JTextField getjTextFieldPatente(){
         return jTextFieldPatente;
     }
-    public JTable getjTableDatos(){
-        return jTableDatos;
+    public JLabel getjLabelEliminado(){
+        return jLabelEliminado;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableDatos;
+    private javax.swing.JLabel jLabelEliminado;
     private javax.swing.JTextField jTextFieldPatente;
     // End of variables declaration//GEN-END:variables
 }

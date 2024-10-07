@@ -2,8 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.sia;
+package com.mycompany.sia.modelo;
 
+import com.mycompany.sia.modelo.ModeloTabla;
+import com.mycompany.sia.modelo.FormatoNumeroInvalidoException;
+import com.mycompany.sia.modelo.BusNoEncontradoException;
+import com.mycompany.sia.modelo.Bus;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,7 +41,7 @@ public class Terminal {
             if (buses.get(i).getPatente().equals(patente)){
                 buses.remove(i);
                 eliminado = true;
-                System.out.println("Bus con patente " + patente + " Ha sido eliminado con exito");
+                //System.out.println("Bus con patente " + patente + " Ha sido eliminado con exito");
                 
                 
                 guardarBusesEnCSV("BusesCSV.csv");
@@ -45,14 +49,14 @@ public class Terminal {
             }
         }
         if (!eliminado){
-            System.out.println("Bus con patente " + patente + " no ha sido encontrado");
+            //System.out.println("Bus con patente " + patente + " no ha sido encontrado");
             throw new BusNoEncontradoException("El bus con patente " + patente + " no fue encontrado.");
         }
     }
     public void mostrarBuses(ModeloTabla tab){
         if (buses.isEmpty()){
-            System.out.println("No hay buses disponible");
-            System.out.println("\n");
+            //System.out.println("No hay buses disponible");
+            //System.out.println("\n");
             return;
         }
         tab.limpiarElementos();
@@ -94,23 +98,23 @@ public class Terminal {
 
     public void buscarBus(String patente, ModeloTabla mt) throws BusNoEncontradoException{
         if (buses.isEmpty()){
-            System.out.println("No hay buses disponibles");
+            //System.out.println("No hay buses disponibles");
             System.out.println("\n");
         }
         else{
             for (int i = 0; i<buses.size();i++ ){
                 if ((buses.get(i)).getPatente().equals(patente)){
                     if((buses.get(i).getCapacidadDisponible() == 0)){
-                        System.out.println("BUS LLENO");
-                        System.out.println("Porfavor usar otra patente");
-                        System.out.println("\n");
+                        //System.out.println("BUS LLENO");
+                        //System.out.println("Porfavor usar otra patente");
+                        //System.out.println("\n");
                     }
                     else{
                         Bus bus = buses.get(i);
-                        System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
-                        System.out.print("Horario: "+ bus.getHorario());
-                        System.out.println("\nPunto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
-                        System.out.println("\n");
+                        //System.out.println("Patente bus: "+ bus.getPatente()+ "\nCapacidad: " + bus.getCapacidadDisponible());
+                        //System.out.print("Horario: "+ bus.getHorario());
+                        //System.out.println("\nPunto Partida: "+bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
+                        //System.out.println("\n");
                         String[] aux = new String[]{
                         bus.getPatente(),
                         String.valueOf(bus.getCapacidadDisponible()),
@@ -129,23 +133,23 @@ public class Terminal {
     }
     public void buscarBusLugar(String destino, ModeloTabla mt) throws BusNoEncontradoException{
         int cant = 0;
-        System.out.println(destino);
+        //System.out.println(destino);
         if(buses.isEmpty()){
-            System.out.println("No hay buses hacia este destino");
-            System.out.println("\n");
+            //System.out.println("No hay buses hacia este destino");
+            //System.out.println("\n");
         }
         mt.limpiarElementos();
         for(int i = 0; i<buses.size();i++){
             if((buses.get(i).getDireccionIda().equals(destino))){
                 if((buses.get(i).getCapacidadDisponible() == 0)){
-                    System.out.println("BUS LLENO");
-                    System.out.println("\n");
+                    //System.out.println("BUS LLENO");
+                    //System.out.println("\n");
                 }
                 else{
                     Bus bus = buses.get(i);
-                    System.out.println("Punto Partida:"+ bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
-                    System.out.println("Horario: "+ bus.getHorario());
-                    System.out.println("Capacidad: " + bus.getCapacidadDisponible());
+                    //System.out.println("Punto Partida:"+ bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
+                    //System.out.println("Horario: "+ bus.getHorario());
+                    //System.out.println("Capacidad: " + bus.getCapacidadDisponible());
                     String[] aux = new String[]{
                     bus.getPatente(),
                     String.valueOf(bus.getCapacidadDisponible()),
@@ -165,22 +169,22 @@ public class Terminal {
     public void buscarBus(String destino, String horario, ModeloTabla mt) throws BusNoEncontradoException{
         int pivote = 1;
         if(buses.isEmpty()){
-            System.out.println("No hay buses en este horario");
-            System.out.println("\n");
+            //System.out.println("No hay buses en este horario");
+            //System.out.println("\n");
         }
         mt.limpiarElementos();
         for(int i = 0; i<buses.size();i++){
             if((buses.get(i).getDireccionIda().equals(destino) && buses.get(i).getHorario().equals(horario))){
                 pivote = 0;
                 if((buses.get(i).getCapacidadDisponible() == 0)){
-                    System.out.println("BUS LLENO");
-                    System.out.println("\n");
+                    //System.out.println("BUS LLENO");
+                    //System.out.println("\n");
                 }
                 else{
                     Bus bus = buses.get(i);
-                    System.out.println("Punto Partida:"+ bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
-                    System.out.println("Horario: "+ bus.getHorario());
-                    System.out.println("Capacidad: " + bus.getCapacidadDisponible());
+                    //System.out.println("Punto Partida:"+ bus.getDireccionSalida()+" - Punto Final: "+bus.getDireccionIda());
+                    //System.out.println("Horario: "+ bus.getHorario());
+                    //System.out.println("Capacidad: " + bus.getCapacidadDisponible());
                     String[] aux = new String[]{
                     bus.getPatente(),
                     String.valueOf(bus.getCapacidadDisponible()),
@@ -193,7 +197,7 @@ public class Terminal {
             }
         }
         if (pivote == 1){
-            System.out.println("No hay buses disponibles");
+            //System.out.println("No hay buses disponibles");
             throw new BusNoEncontradoException("No se encontró ningún bus con los criterios ingresados.");
         }
     }
@@ -205,7 +209,7 @@ public class Terminal {
             }
         }
         
-        System.out.println("El bus con patente " + patente + " no fue encontrado.");
+        //System.out.println("El bus con patente " + patente + " no fue encontrado.");
         throw new BusNoEncontradoException("El bus con patente " + patente + " no fue encontrado.");
     }
 

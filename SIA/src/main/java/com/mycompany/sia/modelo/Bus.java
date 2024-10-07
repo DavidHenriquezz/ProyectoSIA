@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.sia;
+package com.mycompany.sia.modelo;
 
 /**
  *
@@ -147,7 +147,7 @@ public class Bus {
                 }
             }
         } else {
-            System.out.println("BUS LLENO");
+            //System.out.println("BUS LLENO");
         }
     }
     
@@ -203,12 +203,12 @@ public class Bus {
             int numeroAsiento = entry.getKey();
             Asiento asiento = entry.getValue();
             if (asiento.getOcupado()) {
-                System.out.println("Asiento " + numeroAsiento + ": Ocupado por " + asiento.getPasajero().getNombre());
+                //System.out.println("Asiento " + numeroAsiento + ": Ocupado por " + asiento.getPasajero().getNombre());
                 String aux = "Asiento " + numeroAsiento + ": Ocupado por " + asiento.getPasajero().getNombre();
                 ml.añadirElemento(aux);
             } 
             else {
-                System.out.println("Asiento " + numeroAsiento + ": Disponible");
+                //System.out.println("Asiento " + numeroAsiento + ": Disponible");
                 String aux = "Asiento " + numeroAsiento + ": Disponible";
                 ml.añadirElemento(aux);
             }
