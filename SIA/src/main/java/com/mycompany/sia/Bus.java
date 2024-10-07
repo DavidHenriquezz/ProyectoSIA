@@ -179,26 +179,20 @@ public class Bus {
     }
 }
     public void eliminarPasajero(int numeroAsiento) throws AsientoInvalidoException {
-    try {
-        if (numeroAsiento > 0 && numeroAsiento <= capacidadTotal) {
-            Asiento asiento = asientos.get(numeroAsiento);
-            if (asiento != null && asiento.getOcupado()) {
-                asiento.setOcupado(false);  // Marcar el asiento como libre
-                asiento.setPasajero(null);  // Eliminar la referencia al pasajero
-                capacidadDisponible++;      // Incrementar la capacidad disponible
-                //System.out.println("El pasajero del asiento " + numeroAsiento + " ha sido eliminado.");
-            } else {
-                throw new AsientoInvalidoException("El asiento " + numeroAsiento + " ya está libre o no existe.");
-            }
-        } else {
-            throw new AsientoInvalidoException("Número de asiento inválido.");
+    if (numeroAsiento > 0 && numeroAsiento <= capacidadTotal) {
+        Asiento asiento = asientos.get(numeroAsiento);
+        if (asiento != null && asiento.getOcupado()) {
+            asiento.setOcupado(false);  // Marcar el asiento como libre
+            asiento.setPasajero(null);  // Eliminar la referencia al pasajero
+            capacidadDisponible++;      // Incrementar la capacidad disponible
+            //System.out.println("El pasajero del asiento " + numeroAsiento + " ha sido eliminado.");
+        } 
+        else {
+            throw new AsientoInvalidoException("El asiento " + numeroAsiento + " ya está libre o no existe.");
         }
-    } catch (AsientoInvalidoException e) {
-        //System.out.println("Error: " + e.getMessage());
-    } catch (Exception e) {
-        //System.out.println("Error inesperado: " + e.getMessage());
-    } finally {
-        //System.out.println("Operación de eliminación de pasajero finalizada.");
+    } 
+    else {
+        throw new AsientoInvalidoException("Número de asiento inválido.");
     }
 }
 

@@ -1,3 +1,23 @@
 
 2024-10-06 19:11:48 - Pasajero añadido: A
 2024-10-06 19:19:50 - Pasajero añadido: Benja
+2024-10-06 19:23:23 - Pasajero añadido: Benja
+2024-10-06 19:23:38 - Pasajero añadido: Benja
+2024-10-06 19:23:48 - Pasajero añadido: Benja
+2024-10-06 19:24:02 - Pasajero añadido: Benja
+2024-10-06 19:25:20 - Pasajero añadido: asd
+2024-10-06 19:26:27 - Pasajero añadido: asd
+2024-10-06 19:36:39 - Pasajero añadido: Benja
+2024-10-06 19:39:09 - Pasajero añadido: asdAS
+2024-10-06 19:46:06 - Pasajero eliminado en el bus con patente: BC123DE
+2024-10-06 19:47:29 - Pasajero añadido: ASD
+2024-10-06 19:54:31 - Pasajero añadido: ASDJHAHSJD
+2024-10-06 21:02:57 - Pasajero eliminado en el bus con patente: BC234DE
+2024-10-06 21:03:00 - Pasajero eliminado en el bus con patente: BC234DE
+2024-10-06 21:03:43 - Pasajero eliminado en el bus con patente: BC234DE
+2024-10-06 21:03:43 - Pasajero eliminado en el bus con patente: BC234DE
+2024-10-06 21:04:48 - Pasajero eliminado en el bus con patente: BC234DE
+2024-10-06 21:07:15 - Pasajero añadido: Benja
+2024-10-06 21:07:25 - Pasajero eliminado en el bus con patente: BC234DE
+2024-10-06 21:09:04 - Pasajero añadido: Benja
+2024-10-06 21:11:48 - Pasajero eliminado en el bus con patente: BC234DE

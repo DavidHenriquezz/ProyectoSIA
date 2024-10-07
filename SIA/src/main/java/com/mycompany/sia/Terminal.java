@@ -30,7 +30,7 @@ public class Terminal {
     public void agregarBuses(Bus bus){
         buses.add(bus);
     }
-    public void eliminarBus(String patente){
+    public void eliminarBus(String patente) throws BusNoEncontradoException{
         boolean eliminado = false;
         
         for (int i = 0 ; i < buses.size(); i++){
@@ -46,6 +46,7 @@ public class Terminal {
         }
         if (!eliminado){
             System.out.println("Bus con patente " + patente + " no ha sido encontrado");
+            throw new BusNoEncontradoException("El bus con patente " + patente + " no fue encontrado.");
         }
     }
     public void mostrarBuses(ModeloTabla tab){

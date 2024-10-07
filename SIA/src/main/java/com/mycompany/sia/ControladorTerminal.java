@@ -225,23 +225,36 @@ public class ControladorTerminal implements ActionListener{
             agregarBus.getjLabelAgregado().setVisible(true);
         }
         if (eliminarBus != null && ae.getSource() == eliminarBus.getjButtonEliminar()){ //Eliminar Bus
-            terminal.eliminarBus(eliminarBus.getjTextFieldPatente().getText());
-            eliminarBus.getjLabelEliminado().setVisible(true);
-            registro.registrarModificacion("Bus eliminado: " + eliminarBus.getjTextFieldPatente().getText());
+            try{
+                terminal.eliminarBus(eliminarBus.getjTextFieldPatente().getText());
+                eliminarBus.getjLabelEliminado().setVisible(true);
+                registro.registrarModificacion("Bus eliminado: " + eliminarBus.getjTextFieldPatente().getText());
+            }
+            catch (BusNoEncontradoException e) {
+                // Manejo de excepción si el bus no se encuentra
+                System.out.println("asdasdasdas");
+                JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
+            } 
         }
         if (agregarPasajero != null) {
             if (ae.getSource() == agregarPasajero.getjButtonContinuar()) {
                 // Crear pasajero y buscar bus
-                String nombre = agregarPasajero.getjTextFieldNombre().getText();
-                int edad = Integer.parseInt(agregarPasajero.getjTextFieldEdad().getText());
-                String correo = agregarPasajero.getjTextFieldCorreo().getText();
-
-                
-                if (correo.equals("x") || correo.isBlank()) {
+                try{
+                    String nombre = agregarPasajero.getjTextFieldNombre().getText();
+                    int edad = Integer.parseInt(agregarPasajero.getjTextFieldEdad().getText());
+                    String correo = agregarPasajero.getjTextFieldCorreo().getText();
+                    if (correo.equals("x") || correo.isBlank()) {
                     pp = new Pasajero(nombre, edad);
-                } else {
+                    } else {
                     pp = new Pasajero(nombre, edad, correo);
+                    }
                 }
+                catch (NumberFormatException e) {
+                    // Manejo de excepción si hay un error en la conversión de edad
+                    JOptionPane.showMessageDialog(null, "Por favor, ingresa una edad válida: " + e.getMessage());
+                    return;
+                }
+                
                 // Buscar el bus por patente
                 try {
                     String patente = agregarPasajero.getjTextFieldPatente().getText();
@@ -263,10 +276,7 @@ public class ControladorTerminal implements ActionListener{
                     System.out.println("asdasdasdas");
                     JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
                 } 
-                catch (NumberFormatException e) {
-                    // Manejo de excepción si hay un error en la conversión de edad
-                    JOptionPane.showMessageDialog(null, "Por favor, ingresa una edad válida: " + e.getMessage());
-                }
+                
             }
             if (ae.getSource() == agregarPasajero.getjButtonAgregar()){
                 bb.ocuparAsiento(Integer.parseInt(agregarPasajero.getjTextFieldNumAsiento().getText()), pp);
@@ -278,7 +288,7 @@ public class ControladorTerminal implements ActionListener{
             if (ae.getSource() == eliminarPasajero.getjButtonBuscar()){
                 try{
                 bb = terminal.buscarBusPatente(eliminarPasajero.getjTextFieldPatente().getText());
-                registro.registrarModificacion("Pasajero eliminado en el bus con patente: " + eliminarPasajero.getjTextFieldPatente().getText());
+                
                 DefaultListModel<String> list = new DefaultListModel<>();
                 ModeloLista modelo = new ModeloLista(list);
                 eliminarPasajero.getjListAsientos().setModel(list);
@@ -289,13 +299,14 @@ public class ControladorTerminal implements ActionListener{
                 eliminarPasajero.getjButtonEliminar().setVisible(true);
                 }
                 catch (BusNoEncontradoException e){
-                    System.out.println("asdasdasasadsasdadfasdhbjfsdhbnfgvdshjnkbgvjdhknszghjnksdzgjhnksdfgjnhbkfsjnkbgmv ffgjkbhmnv sfxjkhmnbsfjnk");
+                    JOptionPane.showMessageDialog(null, "Bus no encontrado: " + e.getMessage());
                 }
             }
             if (ae.getSource() == eliminarPasajero.getjButtonEliminar()){
                 try{
                     bb.eliminarPasajero(Integer.parseInt(eliminarPasajero.getjTextFieldNumAsiento().getText()));
                     eliminarPasajero.getjLabelEliminado().setVisible(true);
+                    registro.registrarModificacion("Pasajero eliminado en el bus con patente: " + eliminarPasajero.getjTextFieldPatente().getText());
                 }
                 catch (AsientoInvalidoException e){
                     JOptionPane.showMessageDialog(null, "Número de asiento inválido: " + e.getMessage());
