@@ -26,4 +26,9 @@ public class ModeloLista implements IModeloDatos<String>{
     public void limpiarElementos() {
         listModel.clear();
     }
+
+    @Override
+    public void añadirElemento(String[] elemento) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

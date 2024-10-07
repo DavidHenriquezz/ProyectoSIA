@@ -18,12 +18,17 @@ public class ModeloTabla implements IModeloDatos<String>{
     }
 
     @Override
-    public void añadirElemento(String elemento) {
-        tableModel.addRow(new Object[]{elemento});
+    public void añadirElemento(String[] elemento) {
+        tableModel.addRow(elemento);
     }
 
     @Override
     public void limpiarElementos() {
         tableModel.setRowCount(0);
+    }
+
+    @Override
+    public void añadirElemento(String elemento) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

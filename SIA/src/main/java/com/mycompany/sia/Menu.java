@@ -41,7 +41,7 @@ public class Menu {
             System.out.println("");
 }
     }
-        public void mostrarCiudadesOrdenadas(DefaultListModel<String> model) {
+        public void mostrarCiudadesOrdenadas(ModeloLista model) {
         // Array con las ciudades de dirección de ida
         String[] ciudades = {
             "Santiago", "Antofagasta", "Temuco", "La Serena", "Santiago", 
@@ -84,9 +84,7 @@ public class Menu {
         //System.out.println("Ciudades de ida ordenadas alfabéticamente (sin duplicados):\n");
         for (String ciudad : ciudadesUnicas) {
             //System.out.println(ciudad);
-            model.addElement(ciudad);
+            model.añadirElemento(ciudad);
         }
     }
-    
 }
-

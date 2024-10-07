@@ -10,5 +10,6 @@ package com.mycompany.sia;
  */
 public interface IModeloDatos<T>{
     void añadirElemento(T elemento);
+    void añadirElemento(T[] elemento);
     void limpiarElementos();
 }

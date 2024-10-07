@@ -23,8 +23,9 @@ public class VentanaBuscar2 extends javax.swing.JFrame {
     public VentanaBuscar2(Menu mm) {
         initComponents();
         DefaultListModel<String> list = new DefaultListModel<>();
+        ModeloLista modelo = new ModeloLista(list);
         jListCiudades.setModel(list);
-        mm.mostrarCiudadesOrdenadas(list);
+        mm.mostrarCiudadesOrdenadas(modelo);
         //jListCiudades.setModel(model);
     }
 

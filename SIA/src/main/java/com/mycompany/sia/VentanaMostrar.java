@@ -17,7 +17,8 @@ public class VentanaMostrar extends javax.swing.JFrame {
     public VentanaMostrar(Terminal tt) {
         initComponents();
         DefaultTableModel model = (DefaultTableModel) jTableDatos.getModel();
-        tt.mostrarBuses(model);
+        ModeloTabla mt = new ModeloTabla(model);
+        tt.mostrarBuses(mt);
     }
 
     /**

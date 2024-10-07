@@ -15,7 +15,7 @@ import java.io.*;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
-public class SIA {
+/**public class SIA {
     public static void main(String[] args) throws IOException {
         int Opcion;
         String Ingresar;
@@ -203,4 +203,4 @@ public class SIA {
             }
         }
     }
-}
+}**/

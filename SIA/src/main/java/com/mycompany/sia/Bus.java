@@ -202,18 +202,24 @@ public class Bus {
     }
 }
 
-    public void mostrarAsientos() {
-    //System.out.println("Estado de los asientos:");
-    for (Map.Entry<Integer, Asiento> entry : asientos.entrySet()) {
-        int numeroAsiento = entry.getKey();
-        Asiento asiento = entry.getValue();
-        if (asiento.getOcupado()) {
-            //System.out.println("Asiento " + numeroAsiento + ": Ocupado por " + asiento.getPasajero().getNombre());
-        } else {
-            //System.out.println("Asiento " + numeroAsiento + ": Disponible");
+    public void mostrarAsientos(ModeloLista ml) {
+        //System.out.println("Estado de los asientos:");
+        ml.limpiarElementos();
+        for (Map.Entry<Integer, Asiento> entry : asientos.entrySet()) {
+            int numeroAsiento = entry.getKey();
+            Asiento asiento = entry.getValue();
+            if (asiento.getOcupado()) {
+                System.out.println("Asiento " + numeroAsiento + ": Ocupado por " + asiento.getPasajero().getNombre());
+                String aux = "Asiento " + numeroAsiento + ": Ocupado por " + asiento.getPasajero().getNombre();
+                ml.añadirElemento(aux);
+            } 
+            else {
+                System.out.println("Asiento " + numeroAsiento + ": Disponible");
+                String aux = "Asiento " + numeroAsiento + ": Disponible";
+                ml.añadirElemento(aux);
+            }
         }
     }
-}
 
 }
 
